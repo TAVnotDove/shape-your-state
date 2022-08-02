@@ -3,14 +3,14 @@ import "./Login.css";
 
 const Login = () => {
   return (
-    <div className="loginFormDiv">
+    <div className="login-form-div">
       <form>
-        <div className="formDiv">
-          <label className="formLabel">Email</label>
+        <div className="login-field-div">
+          <label className="login-form-label">Email</label>
           <input></input>
         </div>
-        <div className="formDiv">
-          <label className="formLabel">Password</label>
+        <div className="login-field-div">
+          <label className="login-form-label">Password</label>
           <input></input>
         </div>
       </form>
