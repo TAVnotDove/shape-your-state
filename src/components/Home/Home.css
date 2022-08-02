@@ -1,0 +1,19 @@
+div.home-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+}
+
+h1.home-title {
+    color: white;
+    font-weight: bold;
+}
+
+p.home-text {
+    color: lightgray;
+    font-size: 1.25rem;
+    width: 30vw;
+    text-align: center;
+}
