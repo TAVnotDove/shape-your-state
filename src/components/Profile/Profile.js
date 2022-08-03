@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Profile.css";
 
 const Profile = () => {
+  const user = localStorage.getItem("user")
+
+  const parsedUser = JSON.parse(user)
+
   return (
     <div className="profile-div">
       <div className="profile-details-div">
-        <label className="profile-details-label">Email:</label>
-        <p>example@domain.extension</p>
+        <label className="profile-details-label">Username:</label>
+        <p>{parsedUser.username}</p>
       </div>
       <div className="profile-details-div">
-        <label className="profile-details-label">Username:</label>
-        <p>User Name</p>
+        <label className="profile-details-label">Email:</label>
+        <p>{parsedUser.email}</p>
       </div>
     </div>
   );
