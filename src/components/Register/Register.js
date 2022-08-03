@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Register.css";
 import userRegister from "../../services/userRegister";
+import { useNavigate } from "react-router-dom";
+import { UserUpdateContext } from "../../contexts/userContext";
 
 const Register = () => {
+  const navigate = useNavigate()
+  const setState = useContext(UserUpdateContext)
+
   async function submitHandler(e) {
     e.preventDefault();
 
@@ -13,7 +18,14 @@ const Register = () => {
     const repeatPassword = formData.get("repeatPassword");
 
     if (password === repeatPassword) {
-      userRegister(username, email, password);
+      const data = await userRegister(username, email, password);
+
+      if (!data.code) {
+        localStorage.setItem("user", JSON.stringify(data))
+        setState("user")
+        navigate("/", {replace: true})
+      }
+      
     }
   }
 

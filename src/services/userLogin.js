@@ -1,5 +1,5 @@
 const userLogin = (username, password) => {
-  fetch("http://localhost:3030/users/login", {
+  return fetch("http://localhost:3030/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -8,7 +8,7 @@ const userLogin = (username, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      return data
     })
     .catch((error) => {
       console.error(error);

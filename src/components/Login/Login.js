@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./Login.css";
 import userLogin from "../../services/userLogin";
+import { useNavigate } from "react-router-dom";
+import { UserUpdateContext } from "../../contexts/userContext";
 
 const Login = () => {
-  function submitHandler(e) {
+  const navigate = useNavigate()
+  const setState = useContext(UserUpdateContext)
+
+  async function submitHandler(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
@@ -11,7 +16,15 @@ const Login = () => {
     const password = formData.get("password").trim();
 
     if (username.length !== 0 && password.length !== 0) {
-      userLogin(username, password);
+      const data = await userLogin(username, password);
+
+      if (!data.code) {
+        localStorage.setItem("user", JSON.stringify(data))
+        setState("user")
+        navigate("/", {replace: true})
+      }
+
+      console.log(data)
     }
   }
 

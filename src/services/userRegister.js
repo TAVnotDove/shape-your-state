@@ -1,5 +1,5 @@
 const userRegister = (username, email, password) => {
-  fetch("http://localhost:3030/users/register", {
+  return fetch("http://localhost:3030/users/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -8,7 +8,7 @@ const userRegister = (username, email, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      return data;
     })
     .catch((error) => {
       console.error(error);
