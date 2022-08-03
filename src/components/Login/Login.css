@@ -19,3 +19,12 @@ label.login-form-label {
     font-size: 1.25rem;
     color: white
 }
+
+div.login-form-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+button.login-form-button {
+    width: 100%;
+}

@@ -19,3 +19,12 @@ label.register-form-label {
     font-size: 1.25rem;
     color: white
 }
+
+div.register-form-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+button.register-form-button {
+    width: 100%;
+}
