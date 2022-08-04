@@ -9,6 +9,11 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import { UserContextProvider } from "./contexts/userContext";
+import CreatePost from "./components/CreatePost/CreatePost";
+import Posts from "./components/Posts/Posts";
+import Post from "./components/Post/Post";
+import EditPost from "./components/EditPost/EditPost";
+import DeletePost from "./components/DeletePost/DeletePost";
 
 function App() {
   return (
@@ -21,6 +26,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/post/create" element={<CreatePost />} />
+          <Route path="/post/edit/:postId" element={<EditPost />} />
+          <Route path="/post/delete/:postId" element={<DeletePost />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:postId" element={<Post />} />
         </Routes>
         <Footer />
       </UserContextProvider>

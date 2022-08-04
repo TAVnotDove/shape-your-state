@@ -1,0 +1,19 @@
+div.posts-div {
+    height: 80vh;
+    border: 5px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 300px;
+}
+div.post-div {
+    border: 5px solid red;
+    width: 200px;
+    height: 200px;
+}
+
+div.post-div label {
+    color: white;
+    font-size: 1.25rem;
+    padding: 5px;
+} 
