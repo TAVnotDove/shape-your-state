@@ -4,11 +4,12 @@ import { UserContext } from "../../contexts/userContext";
 import "./Header.css";
 
 const Header = () => {
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   return (
     <nav className="navbar">
       <Link to="/">Home</Link>
+      <Link to="/posts">Posts</Link>
       {user === null ? (
         <>
           <Link to="/login">Login</Link>
@@ -17,7 +18,6 @@ const Header = () => {
       ) : (
         <>
           <Link to="/profile">Profile</Link>
-          <Link to="/posts">Posts</Link>
           <Link to="/post/create">Create post</Link>
           <Link to="/logout">Logout</Link>
         </>
