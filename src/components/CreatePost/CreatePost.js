@@ -15,14 +15,11 @@ const CreatePost = () => {
     const text = formData.get("text").trim();
 
     if (title.length !== 0 && text.length !== 0) {
-      const data = await createPost(title, text, user.accessToken);
+      const data = await createPost(title, text, user.accessToken, user.username);
 
       if (!data.code) {
         navigate("/", { replace: true });
       }
-
-      console.log(user);
-      console.log(data);
     }
   }
 

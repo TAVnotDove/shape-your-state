@@ -6,7 +6,7 @@ const EditPost = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/posts/${postId}`)
@@ -29,11 +29,9 @@ const EditPost = () => {
     if (title.length !== 0 && text.length !== 0) {
       const data = await editPost(title, text, user.accessToken, postId);
 
-        if (!data.code) {
-          navigate(`/posts/${postId}`, { replace: true });
-        }
-
-        console.log(data);
+      if (!data.code) {
+        navigate(`/posts/${postId}`, { replace: true });
+      }
     }
   }
 

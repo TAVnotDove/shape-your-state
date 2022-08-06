@@ -1,15 +1,17 @@
 div.posts-div {
     height: 80vh;
-    border: 5px solid white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     min-width: 300px;
+    overflow-y: scroll;
 }
 div.post-div {
-    border: 5px solid red;
+    border: 5px solid white;
+    padding: 10px;
     width: 200px;
     height: 200px;
+    margin: 10px 0px;
 }
 
 div.post-div label {

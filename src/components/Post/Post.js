@@ -23,6 +23,7 @@ const Post = () => {
         <div className="post-div">
           <label>{post.title}</label>
           <p>{post.text}</p>
+          <p>Posted by: {post.username}</p>
           {user && post._ownerId === user._id ? (
             <>
               <Link to={`/post/edit/${postId}`}>Edit</Link>

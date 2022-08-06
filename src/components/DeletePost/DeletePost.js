@@ -7,14 +7,12 @@ const DeletePost = () => {
   const { postId } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
 
-
   async function clickHandler(e) {
-      const data = await deletePost(user.accessToken, postId);
+    const data = await deletePost(user.accessToken, postId);
 
-      if (!data.code) {
-        navigate(`/posts`, { replace: true });
-      }
-      console.log(data)
+    if (!data.code) {
+      navigate(`/posts`, { replace: true });
+    }
   }
 
   return (

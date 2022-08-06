@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const setState = useContext(UserUpdateContext)
+  const navigate = useNavigate();
+  const setState = useContext(UserUpdateContext);
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -19,12 +19,10 @@ const Login = () => {
       const data = await userLogin(username, password);
 
       if (!data.code) {
-        localStorage.setItem("user", JSON.stringify(data))
-        setState("user")
-        navigate("/", {replace: true})
+        localStorage.setItem("user", JSON.stringify(data));
+        setState("user");
+        navigate("/", { replace: true });
       }
-
-      console.log(data)
     }
   }
 

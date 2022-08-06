@@ -26,15 +26,15 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:postId" element={<Post />} />
           <Route element={<RouteGuard />}>
             <Route path="/logout" element={<Logout />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/post/create" element={<CreatePost />} />
             <Route path="/post/edit/:postId" element={<EditPost />} />
             <Route path="/post/delete/:postId" element={<DeletePost />} />
-            <Route path="/posts/:postId" element={<Post />} />
           </Route>
-        <Route path="*" element={<p>404 No Page Found</p>} />
+          <Route path="*" element={<p>404 No Page Found</p>} />
         </Routes>
         <Footer />
       </UserContextProvider>
