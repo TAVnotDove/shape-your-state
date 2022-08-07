@@ -9,11 +9,11 @@ const Posts = () => {
   function onChange(e) {
     if (e.target.value === "recent") {
       setData((data) =>
-        data.slice().sort((a, b) => a._createdOn - b._createdOn)
+        data.slice().sort((a, b) => b._createdOn - a._createdOn)
       );
     } else {
       setData((data) =>
-        data.slice().sort((a, b) => b._createdOn - a._createdOn)
+        data.slice().sort((a, b) => a._createdOn - b._createdOn)
       );
     }
   }
@@ -22,43 +22,56 @@ const Posts = () => {
     fetch("http://localhost:3030/data/posts")
       .then((response) => response.json())
       .then((response) => {
-        setData(response);
+        if (response.code) {
+          setData([]);
+        } else {
+          setData(response.slice().sort((a, b) => b._createdOn - a._createdOn));
+        }
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
+  console.log();
+
   return (
     <div className="posts-div">
-      <label htmlFor="cars">Choose a car:</label>
-      <select ref={select} name="cars" id="cars" onChange={onChange}>
-        <option value="recent">Recent</option>
-        <option value="oldest">Oldest</option>
-      </select>
+      <div className="posts-view-select-div">
+        <label htmlFor="posts-view-select">View order:</label>
+        <select ref={select} id="posts-view-select" onChange={onChange}>
+          <option value="recent">Recent</option>
+          <option value="oldest">Oldest</option>
+        </select>
+      </div>
       {data !== null ? (
-        data.code !== 404 ? (
-          data.length > 0 ? (
-            data.map((x) => (
-              <div key={x._id} className="post-div">
-                <label>{x.title}</label>
-                <p>Posted by: {x.username}</p>
-                <p>Posted on: {String(new Date(x._createdOn))}</p>
-
-                <Link to={`/posts/${x._id}`}>Details</Link>
+        data.length > 0 ? (
+          data.map((x) => (
+            <div key={x._id} className="post-div">
+              <label>{x.title}</label>
+              <p>Posted by: {x.username}</p>
+              <div className="test-div-post">
+                <PostDate date={x._createdOn} />
+                <Link to={`/posts/${x._id}`} className="posts-details-link">
+                  Details
+                </Link>
               </div>
-            ))
-          ) : (
-            <p>No posts</p>
-          )
+            </div>
+          ))
         ) : (
           <p>No posts</p>
         )
       ) : (
-        <p>Loading</p>
+        <p>Loading...</p>
       )}
     </div>
   );
+};
+
+const PostDate = ({ date }) => {
+  const formattedDate = String(new Date(date)).substring(4, 24);
+
+  return <p>Posted on: {formattedDate}</p>;
 };
 
 export default Posts;

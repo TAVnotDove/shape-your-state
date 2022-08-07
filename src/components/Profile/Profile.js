@@ -7,7 +7,7 @@ const Profile = () => {
   const parsedUser = JSON.parse(user)
 
   return (
-    <div className="profile-div">
+    <div className="profile-div-container">
       <div className="profile-details-div">
         <label className="profile-details-label">Username:</label>
         <p>{parsedUser.username}</p>

@@ -1,0 +1,43 @@
+div.post-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+div.post-div {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: gray;
+  color: black;
+  height: fit-content;
+}
+
+div.post-div p {
+    background-color: darkgray;
+}
+
+div.test-the-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.post-actions-div {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.post-action-link {
+  color: white;
+  text-decoration: none;
+}
+
+.post-action-link:hover {
+  color: black;
+}

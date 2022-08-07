@@ -11,15 +11,19 @@ const Logout = () => {
     if (e.target.textContent === "Yes") {
       localStorage.clear();
       setState(null);
-      
-      navigate("/", {replace: true});
+
+      navigate("/", { replace: true });
     }
   }
 
   return (
     <div className="logout-div">
-      <p className="logout-text">Are you sure you want to logout?</p>
-      <button onClick={logoutUser}>Yes</button>
+      <div>
+        <p className="logout-text">Are you sure you want to logout?</p>
+        <button onClick={logoutUser} className="logout-button">
+          Yes
+        </button>
+      </div>
     </div>
   );
 };

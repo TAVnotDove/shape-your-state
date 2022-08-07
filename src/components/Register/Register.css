@@ -7,10 +7,14 @@ div.register-form-div {
     align-items: center;
 }
 
+div.register-form-div form {
+    border: 10px solid white;
+    background-color: gray;
+    width: 22%;
+}
+
 div.register-field-div {
-    border: 5px solid white;
     padding: 10px;
-    width: 300px;
     display: flex;
     justify-content: space-between;
 }

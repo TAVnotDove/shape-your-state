@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import editPost from "../../services/editPost";
+import "./EditPost.css";
 
 const EditPost = () => {
   const { postId } = useParams();
@@ -27,7 +28,13 @@ const EditPost = () => {
     const text = formData.get("text").trim();
 
     if (title.length !== 0 && text.length !== 0) {
-      const data = await editPost(title, text, user.accessToken, postId);
+      const data = await editPost(
+        title,
+        text,
+        user.username,
+        user.accessToken,
+        postId
+      );
 
       if (!data.code) {
         navigate(`/posts/${postId}`, { replace: true });
@@ -36,25 +43,23 @@ const EditPost = () => {
   }
 
   return (
-    <>
+    <div className="edit-post-div">
       {post !== null ? (
-        <div className="create-post-div">
-          <form className="create-post-form" onSubmit={submitHandler}>
-            <div>
-              <label>Title:</label>
-              <input name="title" defaultValue={post.title}></input>
-            </div>
-            <div>
-              <label>Text:</label>
-              <input name="text" defaultValue={post.text}></input>
-            </div>
-            <button>Edit</button>
-          </form>
-        </div>
+        <form className="edit-post-form" onSubmit={submitHandler}>
+          <div>
+            <label>Title:</label>
+            <input name="title" defaultValue={post.title}></input>
+          </div>
+          <div>
+            <label>Text:</label>
+            <input name="text" defaultValue={post.text}></input>
+          </div>
+          <button>Edit</button>
+        </form>
       ) : (
-        <p>Loading</p>
+        <p>Loading...</p>
       )}
-    </>
+    </div>
   );
 };
 

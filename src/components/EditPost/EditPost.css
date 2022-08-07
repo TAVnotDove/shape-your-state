@@ -1,4 +1,4 @@
-div.create-post-div {
+div.edit-post-div {
     width: 100%;
     height: 80vh;
     display: flex;
@@ -7,21 +7,21 @@ div.create-post-div {
     align-items: center;
 }
 
-form.create-post-form {
+form.edit-post-form {
     border: 5px solid white;
     padding: 10px;
-    width: 25%;
+    width: 300px;
     display: flex;
     flex-direction: column;
     background-color: gray;
 }
 
-form.create-post-form div {
+form.edit-post-form div {
     display: flex;
     justify-content: space-between;
 }
 
-form.create-post-form div label {
+form.edit-post-form div label {
     font-size: 1.25rem;
     color: white;
 }

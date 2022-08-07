@@ -1,11 +1,28 @@
 div.logout-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+div.logout-div div {
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 5px solid white;
+  align-items: center;
+  min-width: fit-content;
+  width: 25%;
+  padding: 10px;
 }
 
 p.logout-text {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
+}
+
+button.logout-button {
+  width: 50px;
+  height: 25px;
 }
