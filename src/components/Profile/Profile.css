@@ -11,7 +11,7 @@ div.profile-details-div {
   border: 5px solid white;
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  width: 25%;
   min-width: fit-content;
   padding: 10px;
   align-items: center;

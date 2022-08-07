@@ -13,6 +13,7 @@ form.edit-post-form {
     width: 300px;
     display: flex;
     flex-direction: column;
+    background-color: gray;
 }
 
 form.edit-post-form div {
