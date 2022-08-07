@@ -6,6 +6,16 @@ div.posts-div {
     min-width: 300px;
     overflow-y: auto;
 }
+
+div.posts-view-select-div {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
 div.post-div {
     border: 5px solid white;
     padding: 10px;

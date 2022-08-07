@@ -11,3 +11,7 @@
     color: white;
     text-decoration: none;
 }
+
+.navbar a:hover {
+    color:  darkgray
+}

@@ -6,15 +6,6 @@ div.post-div-container {
   overflow-y: auto;
 }
 
-div.posts-view-select-div {
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 150px;
-}
-
 div.post-div {
   width: 33%;
   display: flex;
