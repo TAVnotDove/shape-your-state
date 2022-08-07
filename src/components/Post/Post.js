@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import "./Post.css";
 
 const Post = () => {
   const { postId } = useParams();
@@ -18,25 +19,37 @@ const Post = () => {
   }, []);
 
   return (
-    <>
+    <div className="post-div-container">
       {post !== null ? (
         <div className="post-div">
           <label>{post.title}</label>
           <p>{post.text}</p>
-          <p>Posted by: {post.username}</p>
-          {user && post._ownerId === user._id ? (
-            <>
-              <Link to={`/post/edit/${postId}`}>Edit</Link>
-              <Link to={`/post/delete/${postId}`}>Delete</Link>
-            </>
-          ) : (
-            <></>
-          )}
+          <div className="test-the-div">
+            <p>Posted by: {post.username}</p>
+            {user && post._ownerId === user._id ? (
+              <div className="post-actions-div">
+                <Link 
+                  to={`/post/edit/${postId}`}
+                  className="post-action-link"
+                >
+                  Edit
+                </Link>
+                <Link
+                  to={`/post/delete/${postId}`}
+                  className="post-action-link"
+                >
+                  Delete
+                </Link>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       ) : (
-        <p>Loading</p>
+        <p className="post-p">Loading...</p>
       )}
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ div.posts-div {
     flex-direction: column;
     align-items: center;
     min-width: 300px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 div.post-div {
     border: 5px solid white;
@@ -19,3 +19,19 @@ div.post-div label {
     font-size: 1.25rem;
     padding: 5px;
 } 
+
+div.test-div-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.posts-details-link {
+    text-decoration: none;
+    color: white;
+}
+
+.posts-details-link:hover {
+    color: black;
+}
