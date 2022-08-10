@@ -4,6 +4,7 @@ div.post-div-container {
   align-items: center;
   height: 80vh;
   overflow-y: auto;
+  flex-direction: column;
 }
 
 div.post-div {

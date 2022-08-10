@@ -15,6 +15,8 @@ import Post from "./components/Post/Post";
 import EditPost from "./components/EditPost/EditPost";
 import DeletePost from "./components/DeletePost/DeletePost";
 import RouteGuard from "./components/RouteGuard/RouteGuard";
+import EditComment from "./components/EditComment.js/EditComment";
+import DeleteComment from "./components/DeleteComment/DeleteComment";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/post/create" element={<CreatePost />} />
             <Route path="/post/edit/:postId" element={<EditPost />} />
             <Route path="/post/delete/:postId" element={<DeletePost />} />
+            <Route path="/comment/edit/:commentId" element={<EditComment />} />
+            <Route path="/comment/delete/:commentId" element={<DeleteComment />} />
           </Route>
           <Route path="*" element={<p>404 No Page Found</p>} />
         </Routes>

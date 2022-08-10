@@ -1,0 +1,26 @@
+div.post-comments-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.post-comments-div {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid yellow;
+  overflow-y: auto;
+  height: 240px;
+}
+
+div.post-comment-div {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid white;
+  padding-left: 10px;
+}
+
+p.test-p-agent {
+  width: 300px;
+  word-break: break-word;
+}
