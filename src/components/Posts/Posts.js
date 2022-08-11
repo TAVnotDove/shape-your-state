@@ -4,6 +4,7 @@ import "./Posts.css";
 
 const Posts = () => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   const select = useRef();
 
   function onChange(e) {
@@ -24,16 +25,16 @@ const Posts = () => {
       .then((response) => {
         if (response.code) {
           setData([]);
+          console.log(response.code)
         } else {
           setData(response.slice().sort((a, b) => b._createdOn - a._createdOn));
         }
       })
       .catch((error) => {
-        console.error(error);
+        setError("The server failed to connect.")
+        console.log(error)
       });
   }, []);
-
-  console.log();
 
   return (
     <div className="posts-div">
@@ -44,7 +45,8 @@ const Posts = () => {
           <option value="oldest">Oldest</option>
         </select>
       </div>
-      {data !== null ? (
+      {error ? <p>{error}</p>
+      : data !== null ? (
         data.length > 0 ? (
           data.map((x) => (
             <div key={x._id} className="post-div">
@@ -55,15 +57,15 @@ const Posts = () => {
                 <Link to={`/posts/${x._id}`} className="posts-details-link">
                   Details
                 </Link>
-              </div>
-            </div>
+                </div>
+                </div>
           ))
         ) : (
           <p>No posts</p>
         )
       ) : (
         <p>Loading...</p>
-      )}
+        )}
     </div>
   );
 };

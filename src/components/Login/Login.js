@@ -12,11 +12,11 @@ const Login = () => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const username = formData.get("username").trim();
+    const email = formData.get("email").trim();
     const password = formData.get("password").trim();
 
-    if (username.length !== 0 && password.length !== 0) {
-      const data = await userLogin(username, password);
+    if (email.length !== 0 && password.length !== 0) {
+      const data = await userLogin(email, password);
 
       if (!data.code) {
         localStorage.setItem("user", JSON.stringify(data));
@@ -40,12 +40,12 @@ const Login = () => {
     <div className="login-form-div">
       <form onSubmit={submitHandler}>
         <div className="login-field-div">
-          <label className="login-form-label">Username</label>
-          <input type="text" name="username"></input>
+          <label className="login-form-label">Email</label>
+          <input type="text" name="email" autoComplete="email"></input>
         </div>
         <div className="login-field-div">
           <label className="login-form-label">Password</label>
-          <input type="password" name="password" ref={passwordField}></input>
+          <input type="password" name="password" ref={passwordField} autoComplete="current-password"></input>
           <input type="checkbox" onChange={changeHandler} />
         </div>
         <div className="login-form-button-div">

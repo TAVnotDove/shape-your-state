@@ -38,15 +38,15 @@ const Register = () => {
         </div>
         <div className="register-field-div">
           <label className="register-form-label">Email</label>
-          <input type="text" name="email"></input>
+          <input type="text" name="email" autoComplete="email"></input>
         </div>
         <div className="register-field-div">
           <label className="register-form-label">Password</label>
-          <input type="password" name="password"></input>
+          <input type="password" name="password" autoComplete="new-password"></input>
         </div>
         <div className="register-field-div">
           <label className="register-form-label">Re-Password</label>
-          <input type="password" name="repeatPassword"></input>
+          <input type="password" name="repeatPassword" autoComplete="new-password"></input>
         </div>
         <div className="register-form-button-div">
           <button className="register-form-button">Submit</button>
