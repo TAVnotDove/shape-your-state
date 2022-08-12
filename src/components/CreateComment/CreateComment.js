@@ -1,26 +1,29 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import addComment from "../../services/addComment";
 
-const CreateComment = () => {
+const CreateComment = ({ setUpdate }) => {
   const { postId } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
-  const navigate = useNavigate()
   async function submitHandler(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const comment = formData.get("comment");
-    const commentObject = { postId, author: user.username, comment };
-    const commentResponse = await addComment(commentObject, user.accessToken);
+    const comment = formData.get("comment").trim();
 
-    if (!commentResponse.code) {
-      console.log("success!");
-      navigate(`/posts`, { replace: true });
-      console.log(commentResponse);
-    } else {
-      console.log("failure!");
-      console.log(commentResponse);
+    if (comment.length !== 0) {
+      const commentObject = { postId, author: user.username, comment };
+      const commentResponse = await addComment(commentObject, user.accessToken);
+      
+      if (!commentResponse.code) {
+        console.log("success!");
+        console.log(commentResponse);
+        e.target.reset();
+        setUpdate((oldState) => [...oldState]);
+      } else {
+        console.log("failure!");
+        console.log(commentResponse);
+      }
     }
   }
   return (

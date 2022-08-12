@@ -19,11 +19,9 @@ const EditComment = () => {
         console.error(error);
       });
   }, []);
-  console.log(comment, "10k")
 
   async function submitHandler(e) {
     e.preventDefault();
-    console.log(comment, 2000)
 
     const formData = new FormData(e.target);
     const commentFromForm = formData.get("comment").trim();
@@ -33,7 +31,7 @@ const EditComment = () => {
       const data = await editComment(comment._id, commentObject, user.accessToken);
 
       if (!data.code) {
-        navigate(`/posts`, { replace: true });
+        navigate(`/posts/${comment.postId}`, { replace: true });
       }
       console.log(data)
     }

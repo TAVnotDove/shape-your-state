@@ -7,6 +7,7 @@ const PostComments = () => {
   const { postId } = useParams();
   const [allComments, setAllComments] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
+  const [update, setUpdate] = useState([]);
   let newData;
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const PostComments = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [update]);
 
   if (allComments !== null) {
     if (allComments.code) {
@@ -65,7 +66,7 @@ const PostComments = () => {
               <p>No comments yet</p>
             )}
           </div>
-          <CreateComment />
+          <CreateComment setUpdate={setUpdate}/>
         </>
       ) : (
         <p>Loading...</p>

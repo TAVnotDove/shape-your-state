@@ -17,8 +17,6 @@ const CreatePost = () => {
     if (title.length !== 0 && text.length !== 0) {
       const postResponse = await createPost(title, text, user.accessToken, user.username);
       
-      console.log(postResponse)
-
       if (!postResponse.code) {
         navigate("/", { replace: true });
       }

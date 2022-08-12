@@ -1,22 +1,28 @@
-div.login-form-div {
+div.login-div-container {
   width: 100%;
   height: 80vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-div.login-form-div form {
-  border: 10px solid white;
+div.login-div-container form {
+  border: 5px solid white;
   background-color: gray;
-  width: 22%;
 }
 
 div.login-field-div {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+}
+
+div.login-show-password-div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 10px;
 }
 
 label.login-form-label {
@@ -30,5 +36,25 @@ div.login-form-button-div {
 }
 
 button.login-form-button {
+  width: 100%;
+}
+
+.login-link {
+  color: white;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  color: gray;
+}
+
+.login-redirect-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 225px;
+}
+
+input.login-form-input {
   width: 100%;
 }
