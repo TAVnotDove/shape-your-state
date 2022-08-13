@@ -52,3 +52,13 @@ button.register-form-button {
   color: white;
   background-color: darkgray;
 }
+
+.register-form-input {
+  width: 100%;
+}
+
+.register-form-confirm-pass-label {
+  font-size: 1.25rem;
+  color: white;
+  width: 258px;
+}

@@ -36,16 +36,6 @@ const Login = () => {
     }
   }
 
-  const passwordField = useRef();
-
-  function changeHandler(e) {
-    if (e.target.checked) {
-      passwordField.current.type = "text";
-    } else {
-      passwordField.current.type = "password";
-    }
-  }
-
   return (
     <div className="login-div-container">
       {error && <ErrorMessage error={error} />}
@@ -71,13 +61,8 @@ const Login = () => {
             type="password"
             id="login-password"
             name="password"
-            ref={passwordField}
             autoComplete="current-password"
           ></input>
-        </div>
-        <div className="login-show-password-div">
-          <label className="login-form-label">Show password</label>
-          <input type="checkbox" onChange={changeHandler} />
         </div>
         <div className="login-form-button-div">
           <button className="login-form-button">Submit</button>

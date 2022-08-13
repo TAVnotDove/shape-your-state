@@ -74,13 +74,19 @@ const Register = () => {
           <label htmlFor="register-username" className="register-form-label">
             Username
           </label>
-          <input type="text" id="register-username" name="username"></input>
+          <input
+            className="register-form-input"
+            type="text"
+            id="register-username"
+            name="username"
+          ></input>
         </div>
         <div className="register-field-div">
           <label htmlFor="register-email" className="register-form-label">
             Email
           </label>
           <input
+            className="register-form-input"
             type="text"
             id="register-email"
             name="email"
@@ -92,6 +98,7 @@ const Register = () => {
             Password
           </label>
           <input
+            className="register-form-input"
             type="password"
             id="register-password"
             name="password"
@@ -101,7 +108,7 @@ const Register = () => {
         <div className="register-field-div">
           <label
             htmlFor="register-repeat-password"
-            className="register-form-label"
+            className="register-form-confirm-pass-label"
           >
             Confirm Password
           </label>
