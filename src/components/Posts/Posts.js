@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Posts.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import LoadingMessage from "../LoadingMessage/LoadingMessage";
 
 const Posts = () => {
   const [data, setData] = useState(null);
@@ -64,7 +65,7 @@ const Posts = () => {
           <p className="posts-details-text">No posts</p>
         )
       ) : (
-        <p>Loading...</p>
+        <LoadingMessage/>
         )}
     </div>
   );

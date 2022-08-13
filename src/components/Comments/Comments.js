@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CreateComment from "../CreateComment/CreateComment";
 import { useParams, Link } from "react-router-dom";
+import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import "./Comments.css";
 
 const Comments = () => {
@@ -69,7 +70,7 @@ const Comments = () => {
           {user ? <CreateComment setUpdate={setUpdate} /> : <></>}
         </>
       ) : (
-        <p>Loading...</p>
+        <LoadingMessage/>
       )}
     </div>
   );

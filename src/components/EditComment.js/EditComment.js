@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import editComment from "../../services/editComment";
 import "../EditPost/EditPost.css";
+import LoadingMessage from "../LoadingMessage/LoadingMessage";
 
 const EditComment = () => {
   const { commentId } = useParams();
@@ -48,7 +49,7 @@ const EditComment = () => {
           <button>Edit</button>
         </form>
       ) : (
-        <p>Loading...</p>
+        <LoadingMessage/>
       )}
     </div>
   );

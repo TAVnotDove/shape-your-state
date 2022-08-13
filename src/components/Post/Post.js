@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Comments from "../Comments/Comments";
+import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import "./Post.css";
 
 const Post = () => {
@@ -54,7 +55,7 @@ const Post = () => {
           )}
         </>
       ) : (
-        <p className="post-p">Loading...</p>
+        <LoadingMessage/>
       )}
       <Comments />
     </div>
