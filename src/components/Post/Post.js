@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import Comments from "../Comments/Comments";
 import "./Post.css";
 
@@ -17,40 +17,46 @@ const Post = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [postId]);
 
   return (
     <div className="post-div-container">
       {post !== null ? (
-        <div className="post-div">
-          <label>{post.title}</label>
-          <p>{post.text}</p>
-          <div className="test-the-div">
-            <p>Posted by: {post.username}</p>
-            {user && post._ownerId === user._id ? (
-              <div className="post-actions-div">
-                <Link 
-                  to={`/post/edit/${postId}`}
-                  className="post-action-link"
-                >
-                  Edit
-                </Link>
-                <Link
-                  to={`/post/delete/${postId}`}
-                  className="post-action-link"
-                >
-                  Delete
-                </Link>
+        <>
+          {post.code ? (
+            <Navigate to="/*" replace />
+          ) : (
+            <div className="post-div">
+              <label>{post.title}</label>
+              <p className="post-details-text">{post.text}</p>
+              <div className="post-details-div">
+                <p className="post-details-username">Posted by: {post.username}</p>
+                {user && post._ownerId === user._id ? (
+                  <div className="post-actions-div">
+                    <Link
+                      to={`/post/edit/${postId}`}
+                      className="post-action-link"
+                    >
+                      Edit
+                    </Link>
+                    <Link
+                      to={`/post/delete/${postId}`}
+                      className="post-action-link"
+                    >
+                      Delete
+                    </Link>
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
-            ) : (
-              <></>
-            )}
-          </div>
-        </div>
+            </div>
+          )}
+        </>
       ) : (
         <p className="post-p">Loading...</p>
       )}
-      {<Comments />}
+      <Comments />
     </div>
   );
 };

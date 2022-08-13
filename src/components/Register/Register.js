@@ -14,26 +14,56 @@ const Register = () => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const username = formData.get("username");
-    const password = formData.get("password");
-    const email = formData.get("email");
-    const repeatPassword = formData.get("repeatPassword");
+    const username = formData.get("username").trim();
+    const email = formData.get("email").trim();
+    const password = formData.get("password").trim();
+    const repeatPassword = formData.get("repeatPassword").trim();
 
-    if (password === repeatPassword) {
-      const settings = {theme: "dark", postsOrder: "recent"}
-      const data = await userRegister({username, email, password, settings});
+    let emailRegExp = /[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+/gm;
+    let passwordRegExp =
+      /^(?=[^A-Z\n]*[A-Z])(?=[^a-z\n]*[a-z])(?=[^0-9\n]*[0-9])(?=[^#?!@$%^&*\n-]*[#?!@$%^&*-]).{6,}$/gm;
+    let emailIsValid = email.match(emailRegExp);
+    let passwordIsValid = password.match(passwordRegExp);
 
-      if (data !== undefined) {
-        if (!data.code) {
-          localStorage.setItem("user", JSON.stringify(data));
-          setState("user");
-          navigate("/", { replace: true });
+    if (
+      username.length !== 0 &&
+      email.length !== 0 &&
+      password.length !== 0 &&
+      repeatPassword.length !== 0
+    ) {
+      if (emailIsValid) {
+        if (passwordIsValid) {
+          if (password === repeatPassword) {
+            const data = await userRegister({
+              username,
+              email,
+              password,
+            });
 
-          console.log(data)
+            if (data !== undefined) {
+              if (!data.code) {
+                localStorage.setItem("user", JSON.stringify(data));
+                setState("user");
+                navigate("/", { replace: true });
+
+                console.log(data);
+              } else {
+                setError(`${data.message}.`);
+              }
+            } else {
+              setError("The server failed to connect.");
+            }
+          } else {
+            setError("Password fields don't match.");
+          }
+        } else {
+        setError("Password format isn't valid.");
         }
       } else {
-        setError("The server failed to connect.");
+        setError("Email format isn't valid.");
       }
+    } else {
+      setError("You need to fill in all fields before submitting.");
     }
   }
   console.log(error);
@@ -75,9 +105,10 @@ const Register = () => {
             htmlFor="register-repeat-password"
             className="register-form-label"
           >
-            Re-Password
+            Confirm Password
           </label>
           <input
+            className="register-form-input"
             type="password"
             id="register-repeat-password"
             name="repeatPassword"
@@ -87,6 +118,7 @@ const Register = () => {
         <div className="register-form-button-div">
           <button className="register-form-button">Submit</button>
         </div>
+        <p className="register-form-password-info">Password should:<br/>-be at least 6 characters long;<br/>-have a small letter, capital letter, symbol, number.</p>
       </form>
       <div className="register-redirect-div">
         <label className="register-form-label">Not registered?</label>

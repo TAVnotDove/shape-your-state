@@ -21,7 +21,7 @@ div.post-div p {
     background-color: darkgray;
 }
 
-div.test-the-div {
+div.post-details-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,4 +41,8 @@ div.post-actions-div {
 
 .post-action-link:hover {
   color: black;
+}
+
+.post-details-username, .post-details-text {
+  color: white
 }

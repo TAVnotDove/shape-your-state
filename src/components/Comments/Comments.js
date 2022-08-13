@@ -35,7 +35,7 @@ const Comments = () => {
     <div className="post-comments-container">
       {newData !== undefined ? (
         <>
-          <p>Comments: {newData.length}</p>
+          <p className="post-comments-count">Comments: {newData.length}</p>
           <div className="post-comments-div">
             {newData.length > 0 ? (
               newData.map((x) => (
@@ -66,7 +66,7 @@ const Comments = () => {
               <p className="post-comments-empty">No comments yet</p>
             )}
           </div>
-          <CreateComment setUpdate={setUpdate} />
+          {user ? <CreateComment setUpdate={setUpdate} /> : <></>}
         </>
       ) : (
         <p>Loading...</p>

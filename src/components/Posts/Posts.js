@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Posts.css";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const Posts = () => {
   const [data, setData] = useState(null);
@@ -44,13 +45,13 @@ const Posts = () => {
           <option value="oldest">Oldest</option>
         </select>
       </div>
-      {error ? <p>{error}</p>
+      {error ? <ErrorMessage error={error}/>
       : data !== null ? (
         data.length > 0 ? (
           data.map((x) => (
             <div key={x._id} className="post-div">
               <label>{x.title}</label>
-              <p>Posted by: {x.username}</p>
+              <p className="posts-details-text">Posted by: {x.username}</p>
               <div className="test-div-post">
                 <PostDate date={x._createdOn} />
                 <Link to={`/posts/${x._id}`} className="posts-details-link">
@@ -60,7 +61,7 @@ const Posts = () => {
                 </div>
           ))
         ) : (
-          <p>No posts</p>
+          <p className="posts-details-text">No posts</p>
         )
       ) : (
         <p>Loading...</p>
@@ -72,7 +73,7 @@ const Posts = () => {
 const PostDate = ({ date }) => {
   const formattedDate = String(new Date(date)).substring(4, 24);
 
-  return <p>Posted on: {formattedDate}</p>;
+  return <p className="posts-details-text">Posted on: {formattedDate}</p>;
 };
 
 export default Posts;

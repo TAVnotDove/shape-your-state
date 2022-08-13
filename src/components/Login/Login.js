@@ -27,11 +27,13 @@ const Login = () => {
           setState("user");
           navigate("/", { replace: true });
         } else {
-          setError(data)
+          setError(`${data.message}.`)
         }
       } else {
         setError("The server failed to connect.")
       }
+    } else {
+      setError("You need to fill in both fields before submitting.");
     }
   }
   console.log(error)

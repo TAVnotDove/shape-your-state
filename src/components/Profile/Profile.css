@@ -22,3 +22,7 @@ label.profile-details-label {
   font-size: 1.25rem;
   color: white;
 }
+
+.profile-details-text {
+  color: white;
+}

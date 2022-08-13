@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 
-const RouteGuard = () => {
+const GuestRouteGuard = () => {
   const user = useContext(UserContext);
 
   if (!user) {
@@ -12,4 +12,4 @@ const RouteGuard = () => {
   return <Outlet />;
 };
 
-export default RouteGuard;
+export default GuestRouteGuard;

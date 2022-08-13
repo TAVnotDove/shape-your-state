@@ -1,0 +1,14 @@
+.page-not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.page-not-found-message {
+    border: 5px solid white;
+    width: 350px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+}

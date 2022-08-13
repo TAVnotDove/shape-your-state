@@ -10,6 +10,7 @@
   border: 5px solid lightgray;
   overflow-y: auto;
   max-height: 350px;
+  min-width: 300px;
 }
 
 .post-comment-div {
@@ -27,4 +28,10 @@
 
 .post-comments-empty {
   align-self: center;
+  color: white;
+}
+
+.post-comments-count {
+  color: white;
+  font-weight: bold;
 }

@@ -45,3 +45,7 @@ div.test-div-post {
 .posts-details-link:hover {
     color: black;
 }
+
+.posts-details-text {
+    color: white;
+}

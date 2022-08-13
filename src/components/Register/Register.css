@@ -47,3 +47,8 @@ button.register-form-button {
   justify-content: space-between;
   width: 225px;
 }
+
+.register-form-password-info {
+  color: white;
+  background-color: darkgray;
+}
