@@ -6,7 +6,7 @@ const UserRouteGuard = () => {
   const user = useContext(UserContext);
 
   if (user) {
-    return <Navigate to="/posts" replace/>
+    return <Navigate to="/posts" replace />;
   }
 
   return <Outlet />;

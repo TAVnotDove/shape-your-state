@@ -1,17 +1,17 @@
 .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 10vh;
 }
 
 .navbar a {
-    font-size: 1.5rem;
-    padding: 1%;
-    color: white;
-    text-decoration: none;
+  font-size: 1.5rem;
+  padding: 1%;
+  color: white;
+  text-decoration: none;
 }
 
 .navbar a:hover {
-    color:  darkgray
+  color: darkgray;
 }

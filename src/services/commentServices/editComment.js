@@ -1,11 +1,11 @@
-const editPost = (title, text, username, accessToken, postId) => {
-  return fetch(`http://localhost:3030/data/posts/${postId}`, {
+const editComment = (commentId, commentObject, accessToken) => {
+  return fetch(`http://localhost:3030/data/comments/${commentId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       "X-Authorization": accessToken,
     },
-    body: JSON.stringify({ title, text, username}),
+    body: JSON.stringify(commentObject),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -16,4 +16,4 @@ const editPost = (title, text, username, accessToken, postId) => {
     });
 };
 
-export default editPost;
+export default editComment;

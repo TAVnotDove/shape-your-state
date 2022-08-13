@@ -1,8 +1,8 @@
 import React from "react";
-import "./LoadingMessage.css"
+import "./LoadingMessage.css";
 
 const LoadingMessage = () => {
-    return <p className="loading-message">Loading...</p>
+  return <p className="loading-message">Loading...</p>;
 };
 
-export default LoadingMessage
+export default LoadingMessage;

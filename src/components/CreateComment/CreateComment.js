@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import addComment from "../../services/addComment";
+import addComment from "../../services/commentServices/addComment";
 import "./CreateComment.css";
 
 const CreateComment = ({ setUpdate }) => {
@@ -18,8 +18,6 @@ const CreateComment = ({ setUpdate }) => {
       const commentResponse = await addComment(commentObject, user.accessToken);
 
       if (!commentResponse.code) {
-        console.log("success!");
-        console.log(commentResponse);
         e.target.reset();
         setUpdate((oldState) => [...oldState]);
       } else {

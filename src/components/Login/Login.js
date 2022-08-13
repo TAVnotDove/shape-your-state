@@ -8,7 +8,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 const Login = () => {
   const navigate = useNavigate();
   const setState = useContext(UserUpdateContext);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -21,22 +21,20 @@ const Login = () => {
       const data = await userLogin(email, password);
 
       if (data !== undefined) {
-
         if (!data.code && data !== undefined) {
           localStorage.setItem("user", JSON.stringify(data));
           setState("user");
           navigate("/", { replace: true });
         } else {
-          setError(`${data.message}.`)
+          setError(`${data.message}.`);
         }
       } else {
-        setError("The server failed to connect.")
+        setError("The server failed to connect.");
       }
     } else {
       setError("You need to fill in both fields before submitting.");
     }
   }
-  console.log(error)
 
   const passwordField = useRef();
 
@@ -50,15 +48,32 @@ const Login = () => {
 
   return (
     <div className="login-div-container">
-      {error && <ErrorMessage error={error}/>}
+      {error && <ErrorMessage error={error} />}
       <form onSubmit={submitHandler}>
         <div className="login-field-div">
-          <label htmlFor="login-email" className="login-form-label">Email</label>
-          <input className="login-form-input" type="text" id="login-email" name="email" autoComplete="email"></input>
+          <label htmlFor="login-email" className="login-form-label">
+            Email
+          </label>
+          <input
+            className="login-form-input"
+            type="text"
+            id="login-email"
+            name="email"
+            autoComplete="email"
+          ></input>
         </div>
         <div className="login-field-div">
-          <label htmlFor="login-password" className="login-form-label">Password</label>
-          <input className="login-form-input" type="password" id="login-password" name="password" ref={passwordField} autoComplete="current-password"></input>
+          <label htmlFor="login-password" className="login-form-label">
+            Password
+          </label>
+          <input
+            className="login-form-input"
+            type="password"
+            id="login-password"
+            name="password"
+            ref={passwordField}
+            autoComplete="current-password"
+          ></input>
         </div>
         <div className="login-show-password-div">
           <label className="login-form-label">Show password</label>
@@ -68,10 +83,12 @@ const Login = () => {
           <button className="login-form-button">Submit</button>
         </div>
       </form>
-        <div className="login-redirect-div">
-          <label className="login-form-label">Not registered?</label>
-          <Link className="login-link" to="/register">Sign up</Link>
-        </div>
+      <div className="login-redirect-div">
+        <label className="login-form-label">Not registered?</label>
+        <Link className="login-link" to="/register">
+          Sign up
+        </Link>
+      </div>
     </div>
   );
 };

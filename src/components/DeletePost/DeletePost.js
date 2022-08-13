@@ -22,7 +22,9 @@ const DeletePost = () => {
         <p className="delete-text">
           Are you sure you want to delete this post?
         </p>
-        <button onClick={clickHandler} className="delete-button">Yes</button>
+        <button onClick={clickHandler} className="delete-button">
+          Yes
+        </button>
       </div>
     </div>
   );

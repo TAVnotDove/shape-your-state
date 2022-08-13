@@ -26,15 +26,23 @@ const EditComment = () => {
 
     const formData = new FormData(e.target);
     const commentFromForm = formData.get("comment").trim();
-    const commentObject =  { postId: comment.postId, author: comment.author, comment: commentFromForm };
+    const commentObject = {
+      postId: comment.postId,
+      author: comment.author,
+      comment: commentFromForm,
+    };
 
     if (commentFromForm.length !== 0) {
-      const data = await editComment(comment._id, commentObject, user.accessToken);
+      const data = await editComment(
+        comment._id,
+        commentObject,
+        user.accessToken
+      );
 
       if (!data.code) {
         navigate(`/posts/${comment.postId}`, { replace: true });
       }
-      console.log(data)
+      console.log(data);
     }
   }
 
@@ -49,7 +57,7 @@ const EditComment = () => {
           <button>Edit</button>
         </form>
       ) : (
-        <LoadingMessage/>
+        <LoadingMessage />
       )}
     </div>
   );

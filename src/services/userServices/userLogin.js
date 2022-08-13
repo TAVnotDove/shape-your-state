@@ -8,7 +8,7 @@ const userLogin = (email, password) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      return data
+      return data;
     })
     .catch((error) => {
       console.error(error);

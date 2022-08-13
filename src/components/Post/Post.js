@@ -31,7 +31,9 @@ const Post = () => {
               <label>{post.title}</label>
               <p className="post-details-text">{post.text}</p>
               <div className="post-details-div">
-                <p className="post-details-username">Posted by: {post.username}</p>
+                <p className="post-details-username">
+                  Posted by: {post.username}
+                </p>
                 {user && post._ownerId === user._id ? (
                   <div className="post-actions-div">
                     <Link
@@ -55,7 +57,7 @@ const Post = () => {
           )}
         </>
       ) : (
-        <LoadingMessage/>
+        <LoadingMessage />
       )}
       <Comments />
     </div>

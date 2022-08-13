@@ -26,14 +26,14 @@ const Posts = () => {
       .then((response) => {
         if (response.code) {
           setData([]);
-          console.log(response.code)
+          console.log(response.code);
         } else {
           setData(response.slice().sort((a, b) => b._createdOn - a._createdOn));
         }
       })
       .catch((error) => {
-        setError("The server failed to connect.")
-        console.log(error)
+        setError("The server failed to connect.");
+        console.log(error);
       });
   }, []);
 
@@ -46,8 +46,9 @@ const Posts = () => {
           <option value="oldest">Oldest</option>
         </select>
       </div>
-      {error ? <ErrorMessage error={error}/>
-      : data !== null ? (
+      {error ? (
+        <ErrorMessage error={error} />
+      ) : data !== null ? (
         data.length > 0 ? (
           data.map((x) => (
             <div key={x._id} className="post-div">
@@ -58,15 +59,15 @@ const Posts = () => {
                 <Link to={`/posts/${x._id}`} className="posts-details-link">
                   Details
                 </Link>
-                </div>
-                </div>
+              </div>
+            </div>
           ))
         ) : (
           <p className="posts-details-text">No posts</p>
         )
       ) : (
-        <LoadingMessage/>
-        )}
+        <LoadingMessage />
+      )}
     </div>
   );
 };

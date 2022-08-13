@@ -57,7 +57,7 @@ const Register = () => {
             setError("Password fields don't match.");
           }
         } else {
-        setError("Password format isn't valid.");
+          setError("Password format isn't valid.");
         }
       } else {
         setError("Email format isn't valid.");
@@ -118,7 +118,13 @@ const Register = () => {
         <div className="register-form-button-div">
           <button className="register-form-button">Submit</button>
         </div>
-        <p className="register-form-password-info">Password should:<br/>-be at least 6 characters long;<br/>-have a small letter, capital letter, symbol, number.</p>
+        <p className="register-form-password-info">
+          Password should:
+          <br />
+          -be at least 6 characters long;
+          <br />
+          -have a small letter, capital letter, symbol, number.
+        </p>
       </form>
       <div className="register-redirect-div">
         <label className="register-form-label">Not registered?</label>

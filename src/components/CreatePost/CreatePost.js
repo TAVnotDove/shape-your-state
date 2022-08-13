@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import createPost from "../../services/createPost";
+import createPost from "../../services/postServices/createPost";
 import "./CreatePost.css";
 
 const CreatePost = () => {
@@ -15,8 +15,13 @@ const CreatePost = () => {
     const text = formData.get("text").trim();
 
     if (title.length !== 0 && text.length !== 0) {
-      const postResponse = await createPost(title, text, user.accessToken, user.username);
-      
+      const postResponse = await createPost(
+        title,
+        text,
+        user.accessToken,
+        user.username
+      );
+
       if (!postResponse.code) {
         navigate("/", { replace: true });
       }

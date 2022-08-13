@@ -26,8 +26,6 @@ const DeleteComment = () => {
     if (!data.code) {
       navigate(`/posts/${comment.postId}`, { replace: true });
     }
-    
-    console.log(data)
   }
 
   return (
@@ -36,7 +34,9 @@ const DeleteComment = () => {
         <p className="delete-text">
           Are you sure you want to delete this comment?
         </p>
-        <button onClick={clickHandler} className="delete-button">Yes</button>
+        <button onClick={clickHandler} className="delete-button">
+          Yes
+        </button>
       </div>
     </div>
   );

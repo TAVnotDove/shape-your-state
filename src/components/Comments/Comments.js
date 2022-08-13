@@ -29,8 +29,6 @@ const Comments = () => {
       newData = allComments.filter((x) => x.postId === postId);
     }
   }
-  console.log(allComments, 100);
-  console.log(newData, 200);
 
   return (
     <div className="post-comments-container">
@@ -70,7 +68,7 @@ const Comments = () => {
           {user ? <CreateComment setUpdate={setUpdate} /> : <></>}
         </>
       ) : (
-        <LoadingMessage/>
+        <LoadingMessage />
       )}
     </div>
   );

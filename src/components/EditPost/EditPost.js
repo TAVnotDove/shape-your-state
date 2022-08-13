@@ -58,7 +58,7 @@ const EditPost = () => {
           <button>Edit</button>
         </form>
       ) : (
-        <LoadingMessage/>
+        <LoadingMessage />
       )}
     </div>
   );

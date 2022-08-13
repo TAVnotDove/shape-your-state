@@ -6,7 +6,7 @@ const GuestRouteGuard = () => {
   const user = useContext(UserContext);
 
   if (!user) {
-    return <Navigate to="/login" replace/>
+    return <Navigate to="/login" replace />;
   }
 
   return <Outlet />;
