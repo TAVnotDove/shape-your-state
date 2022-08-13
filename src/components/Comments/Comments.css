@@ -1,26 +1,30 @@
-div.post-comments-container {
+.post-comments-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-div.post-comments-div {
+.post-comments-div {
   display: flex;
   flex-direction: column;
-  border: 1px solid yellow;
+  border: 5px solid lightgray;
   overflow-y: auto;
-  height: 240px;
+  max-height: 350px;
 }
 
-div.post-comment-div {
-  background-color: red;
+.post-comment-div {
+  background-color: darkgray;
   display: flex;
   flex-direction: column;
   border: 5px solid white;
   padding-left: 10px;
 }
 
-p.test-p-agent {
+.post-comment-comment {
   width: 300px;
   word-break: break-word;
+}
+
+.post-comments-empty {
+  align-self: center;
 }

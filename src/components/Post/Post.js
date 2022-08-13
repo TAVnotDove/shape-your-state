@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import PostComments from "../PostComments/PostComments";
+import Comments from "../Comments/Comments";
 import "./Post.css";
 
 const Post = () => {
@@ -50,7 +50,7 @@ const Post = () => {
       ) : (
         <p className="post-p">Loading...</p>
       )}
-      {<PostComments />}
+      {<Comments />}
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CreateComment from "../CreateComment/CreateComment";
 import { useParams, Link } from "react-router-dom";
-import "./PostComments.css";
+import "./Comments.css";
 
-const PostComments = () => {
+const Comments = () => {
   const { postId } = useParams();
   const [allComments, setAllComments] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -41,7 +41,7 @@ const PostComments = () => {
               newData.map((x) => (
                 <div key={x._id} className="post-comment-div">
                   <p>{x.author}</p>
-                  <p className="test-p-agent">{x.comment}</p>
+                  <p className="post-comment-comment">{x.comment}</p>
                   {user && x._ownerId === user._id ? (
                     <div>
                       <Link
@@ -63,10 +63,10 @@ const PostComments = () => {
                 </div>
               ))
             ) : (
-              <p>No comments yet</p>
+              <p className="post-comments-empty">No comments yet</p>
             )}
           </div>
-          <CreateComment setUpdate={setUpdate}/>
+          <CreateComment setUpdate={setUpdate} />
         </>
       ) : (
         <p>Loading...</p>
@@ -75,4 +75,4 @@ const PostComments = () => {
   );
 };
 
-export default PostComments;
+export default Comments;

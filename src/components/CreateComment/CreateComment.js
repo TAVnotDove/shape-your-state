@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import addComment from "../../services/addComment";
+import "./CreateComment.css";
 
 const CreateComment = ({ setUpdate }) => {
   const { postId } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
+
   async function submitHandler(e) {
     e.preventDefault();
 
@@ -14,7 +16,7 @@ const CreateComment = ({ setUpdate }) => {
     if (comment.length !== 0) {
       const commentObject = { postId, author: user.username, comment };
       const commentResponse = await addComment(commentObject, user.accessToken);
-      
+
       if (!commentResponse.code) {
         console.log("success!");
         console.log(commentResponse);
@@ -26,11 +28,12 @@ const CreateComment = ({ setUpdate }) => {
       }
     }
   }
+
   return (
-    <div>
+    <div className="create-comment-container">
       <form onSubmit={submitHandler}>
-        <label>Comment:</label>
-        <input type="text" name="comment"></input>
+        <label htmlFor="create-comment-field">Comment:</label>
+        <input id="create-comment-field" type="text" name="comment"></input>
         <button>Comment</button>
       </form>
     </div>

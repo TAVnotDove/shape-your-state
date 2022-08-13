@@ -4,7 +4,7 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>Copyright text</p>
+      <p>ReactJS 2022</p>
     </footer>
   );
 };
