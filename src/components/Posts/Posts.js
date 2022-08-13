@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Posts.css";
 
 const Posts = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const select = useRef();
 
   function onChange(e) {
     if (e.target.value === "recent") {
@@ -40,7 +39,7 @@ const Posts = () => {
     <div className="posts-div">
       <div className="posts-view-select-div">
         <label htmlFor="posts-view-select">View order:</label>
-        <select ref={select} id="posts-view-select" onChange={onChange}>
+        <select id="posts-view-select" onChange={onChange}>
           <option value="recent">Recent</option>
           <option value="oldest">Oldest</option>
         </select>
