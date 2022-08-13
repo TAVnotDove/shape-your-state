@@ -20,13 +20,16 @@ const Register = () => {
     const repeatPassword = formData.get("repeatPassword");
 
     if (password === repeatPassword) {
-      const data = await userRegister(username, email, password);
+      const settings = {theme: "dark", postsOrder: "recent"}
+      const data = await userRegister({username, email, password, settings});
 
       if (data !== undefined) {
         if (!data.code) {
           localStorage.setItem("user", JSON.stringify(data));
           setState("user");
           navigate("/", { replace: true });
+
+          console.log(data)
         }
       } else {
         setError("The server failed to connect.");

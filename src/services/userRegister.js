@@ -1,10 +1,10 @@
-const userRegister = (username, email, password) => {
+const userRegister = (userData) => {
   return fetch("http://localhost:3030/users/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ username, email, password }),
+    body: JSON.stringify(userData),
   })
     .then((response) => response.json())
     .then((data) => {
