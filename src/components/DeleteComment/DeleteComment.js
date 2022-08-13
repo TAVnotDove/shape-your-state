@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import deleteComment from "../../services/deleteComment";
+import deleteComment from "../../services/commentServices/deleteComment";
 import "../DeletePost/DeletePost.css";
 
 const DeleteComment = () => {
@@ -18,7 +18,7 @@ const DeleteComment = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [commentId]);
 
   async function clickHandler(e) {
     const data = await deleteComment(user.accessToken, commentId);

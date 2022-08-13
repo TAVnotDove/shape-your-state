@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import editComment from "../../services/editComment";
-import "../EditPost/EditPost.css";
+import editComment from "../../services/commentServices/editComment";
+import "./EditComment.css";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 
 const EditComment = () => {
@@ -19,7 +19,7 @@ const EditComment = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [commentId]);
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -42,14 +42,13 @@ const EditComment = () => {
       if (!data.code) {
         navigate(`/posts/${comment.postId}`, { replace: true });
       }
-      console.log(data);
     }
   }
 
   return (
-    <div className="edit-post-div">
+    <div className="edit-comment-div">
       {comment !== null ? (
-        <form className="edit-post-form" onSubmit={submitHandler}>
+        <form className="edit-comment-form" onSubmit={submitHandler}>
           <div>
             <label>Comment:</label>
             <input name="comment" defaultValue={comment.comment}></input>

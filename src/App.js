@@ -15,7 +15,7 @@ import Post from "./components/Post/Post";
 import EditPost from "./components/EditPost/EditPost";
 import DeletePost from "./components/DeletePost/DeletePost";
 import UserRouteGuard from "./components/UserRouteGuard/UserRouteGuard";
-import EditComment from "./components/EditComment.js/EditComment";
+import EditComment from "./components/EditComment/EditComment";
 import DeleteComment from "./components/DeleteComment/DeleteComment";
 import RouteNotFound from "./components/RouteNotFound/RouteNotFound";
 import GuestRouteGuard from "./components/GuestRouteGuard/GuestRouteGuard";

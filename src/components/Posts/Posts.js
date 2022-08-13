@@ -26,14 +26,12 @@ const Posts = () => {
       .then((response) => {
         if (response.code) {
           setData([]);
-          console.log(response.code);
         } else {
           setData(response.slice().sort((a, b) => b._createdOn - a._createdOn));
         }
       })
       .catch((error) => {
         setError("The server failed to connect.");
-        console.log(error);
       });
   }, []);
 

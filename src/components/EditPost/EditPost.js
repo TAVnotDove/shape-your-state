@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import editPost from "../../services/editPost";
+import editPost from "../../services/postServices/editPost";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import "./EditPost.css";
 
@@ -19,7 +19,7 @@ const EditPost = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [postId]);
 
   async function submitHandler(e) {
     e.preventDefault();

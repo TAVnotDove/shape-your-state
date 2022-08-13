@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import deletePost from "../../services/deletePost";
+import deletePost from "../../services/postServices/deletePost";
 import "./DeletePost.css";
 
 const DeletePost = () => {

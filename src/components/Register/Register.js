@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Register.css";
-import userRegister from "../../services/userRegister";
+import userRegister from "../../services/userServices/userRegister";
 import { Link, useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
@@ -43,10 +43,9 @@ const Register = () => {
             if (data !== undefined) {
               if (!data.code) {
                 localStorage.setItem("user", JSON.stringify(data));
+
                 setState("user");
                 navigate("/", { replace: true });
-
-                console.log(data);
               } else {
                 setError(`${data.message}.`);
               }
@@ -66,7 +65,6 @@ const Register = () => {
       setError("You need to fill in all fields before submitting.");
     }
   }
-  console.log(error);
 
   return (
     <div className="register-div-container">
