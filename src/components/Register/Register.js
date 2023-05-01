@@ -132,7 +132,7 @@ const Register = () => {
         </p>
       </form>
       <div className="register-redirect-div">
-        <label className="register-form-label">Not registered?</label>
+        <label className="register-form-label">Already registered?</label>
         <Link className="register-link" to="/login">
           Sign in
         </Link>
