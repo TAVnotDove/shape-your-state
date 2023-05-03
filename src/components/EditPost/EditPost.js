@@ -3,12 +3,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import editPost from "../../services/postServices/editPost";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import "./EditPost.css";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const EditPost = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/posts/${postId}`)
@@ -37,14 +39,23 @@ const EditPost = () => {
         postId
       );
 
-      if (!data.code) {
-        navigate(`/posts/${postId}`, { replace: true });
+      if (data !== undefined) {
+        if (!data.code) {
+          navigate(`/posts/${postId}`, { replace: true });
+        } else {
+          setError(`${data.message}.`);
+        }
+      } else {
+        setError("The server failed to connect.");
       }
+    } else {
+      setError("You need to fill in both fields before submitting.");
     }
   }
 
   return (
     <div className="edit-post-div">
+      {error && <ErrorMessage error={error} />}
       {post !== null ? (
         <form className="edit-post-form" onSubmit={submitHandler}>
           <div>
