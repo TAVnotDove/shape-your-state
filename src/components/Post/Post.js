@@ -8,6 +8,7 @@ const Post = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/posts/${postId}`)
@@ -16,7 +17,7 @@ const Post = () => {
         setPost(response);
       })
       .catch((error) => {
-        console.error(error);
+        setError("The server failed to connect.");
       });
   }, [postId]);
 
@@ -57,7 +58,7 @@ const Post = () => {
           )}
         </>
       ) : (
-        <LoadingMessage />
+        error ? <></> : <LoadingMessage />
       )}
       <Comments />
     </div>

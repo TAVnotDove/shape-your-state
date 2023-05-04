@@ -3,6 +3,7 @@ import CreateComment from "../CreateComment/CreateComment";
 import { useParams, Link } from "react-router-dom";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import "./Comments.css";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const Comments = () => {
   const { postId } = useParams();
@@ -10,15 +11,20 @@ const Comments = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [update, setUpdate] = useState([]);
   let newData;
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/comments`)
       .then((response) => response.json())
       .then((response) => {
-        setAllComments(response);
+        if (response.code) {
+          setAllComments([]);
+        } else {
+          setAllComments(response);
+        }
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        setError("The server failed to connect.");
       });
   }, [update]);
 
@@ -32,6 +38,7 @@ const Comments = () => {
 
   return (
     <div className="post-comments-container">
+      {error && <ErrorMessage error={error} />}
       {newData !== undefined ? (
         <>
           <p className="post-comments-count">Comments: {newData.length}</p>
@@ -65,11 +72,11 @@ const Comments = () => {
               <p className="post-comments-empty">No comments yet</p>
             )}
           </div>
-          {user ? <CreateComment setUpdate={setUpdate} /> : <></>}
+          {user ? <CreateComment setUpdate={setUpdate} setError={setError} /> : <></>}
         </>
-      ) : (
-        <LoadingMessage />
-      )}
+      ) : 
+        error ? <></> : <LoadingMessage />
+      }
     </div>
   );
 };

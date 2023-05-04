@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import addComment from "../../services/commentServices/addComment.js";
 import "./CreateComment.css";
 
-const CreateComment = ({ setUpdate }) => {
+const CreateComment = ({ setUpdate, setError }) => {
   const { postId } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -20,6 +20,8 @@ const CreateComment = ({ setUpdate }) => {
       if (!commentResponse.code) {
         e.target.reset();
         setUpdate((oldState) => [...oldState]);
+      } else {
+        setError(commentResponse)
       }
     }
   }
