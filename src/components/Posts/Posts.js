@@ -10,13 +10,17 @@ const Posts = () => {
 
   function onChange(e) {
     if (e.target.value === "recent") {
-      setData((data) =>
-        data.slice().sort((a, b) => b._createdOn - a._createdOn)
-      );
+      if (data) {
+        setData((data) =>
+          data.slice().sort((a, b) => b._createdOn - a._createdOn)
+        );
+      }
     } else {
-      setData((data) =>
-        data.slice().sort((a, b) => a._createdOn - b._createdOn)
-      );
+      if (data) {
+        setData((data) =>
+          data.slice().sort((a, b) => a._createdOn - b._createdOn)
+        );
+      }
     }
   }
 
