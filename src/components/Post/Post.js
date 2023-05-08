@@ -16,7 +16,7 @@ const Post = () => {
       .then((response) => {
         setPost(response);
       })
-      .catch((error) => {
+      .catch(() => {
         setError("The server failed to connect.");
       });
   }, [postId]);

@@ -34,7 +34,7 @@ const Posts = () => {
           setData(response.slice().sort((a, b) => b._createdOn - a._createdOn));
         }
       })
-      .catch((error) => {
+      .catch(() => {
         setError("The server failed to connect.");
       });
   }, []);

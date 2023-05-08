@@ -19,6 +19,7 @@ import EditComment from "./components/EditComment/EditComment";
 import DeleteComment from "./components/DeleteComment/DeleteComment";
 import RouteNotFound from "./components/RouteNotFound/RouteNotFound";
 import GuestRouteGuard from "./components/GuestRouteGuard/GuestRouteGuard";
+import ProfileSettings from "./components/ProfileSettings/ProfileSettings"
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route element={<GuestRouteGuard />}>
             <Route path="/logout" element={<Logout />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/settings" element={<ProfileSettings />} />
             <Route path="/post/create" element={<CreatePost />} />
             <Route path="/post/edit/:postId" element={<EditPost />} />
             <Route path="/post/delete/:postId" element={<DeletePost />} />

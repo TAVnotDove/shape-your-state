@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Profile.css";
 
 const Profile = () => {
@@ -20,6 +21,7 @@ const Profile = () => {
           {String(new Date(user._createdOn)).substring(4, 24)}
         </p>
       </div>
+      <Link to="/profile/settings">Settings</Link>
     </div>
   );
 };

@@ -26,3 +26,14 @@ label.profile-details-label {
 .profile-details-text {
   color: white;
 }
+
+.profile-div-container a {
+  font-size: 1.25rem;
+  padding: 1%;
+  color: white;
+  text-decoration: none;
+}
+
+.profile-div-container a:hover {
+  color: darkgray;
+}
