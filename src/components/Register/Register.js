@@ -4,6 +4,7 @@ import userRegister from "../../services/userServices/userRegister";
 import { Link, useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import createSettings from "../../services/settingServices/createSettings";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -43,6 +44,8 @@ const Register = () => {
             if (data !== undefined) {
               if (!data.code) {
                 localStorage.setItem("user", JSON.stringify(data));
+
+                await createSettings(data.accessToken)
 
                 setState("user");
                 navigate("/", { replace: true });

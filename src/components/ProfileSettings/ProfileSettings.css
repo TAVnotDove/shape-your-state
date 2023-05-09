@@ -7,6 +7,22 @@
     align-items: center;
 }
 
-.profile-settings-div-container h1 {
+.profile-settings-div-container div {
+    border: 5px solid white;
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    min-width: fit-content;
+    padding: 10px;
+    align-items: center;
+    background-color: gray;
+}
+
+.profile-settings-div-container label {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.profile-settings-div-container p {
     color: white;
 }
