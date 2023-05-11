@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import createPost from "../../services/postServices/createPost";
 import "./CreatePost.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const CreatePost = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const [error, setError] = useState(null);
+  const theme = useContext(ThemeContext)
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -41,7 +43,7 @@ const CreatePost = () => {
   return (
     <div className="create-post-div">
       {error && <ErrorMessage error={error} />}
-      <form className="create-post-form" onSubmit={submitHandler}>
+      <form className={`create-post-form-${theme}`} onSubmit={submitHandler}>
         <div>
           <label>Title:</label>
           <input name="title"></input>

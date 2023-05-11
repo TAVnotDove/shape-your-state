@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import editPost from "../../services/postServices/editPost";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import "./EditPost.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const EditPost = () => {
   const { postId } = useParams();
@@ -11,6 +12,7 @@ const EditPost = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+  const theme = useContext(ThemeContext)
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/posts/${postId}`)
@@ -57,7 +59,7 @@ const EditPost = () => {
     <div className="edit-post-div">
       {error && <ErrorMessage error={error} />}
       {post !== null ? (
-        <form className="edit-post-form" onSubmit={submitHandler}>
+        <form className={`edit-post-form-${theme}`} onSubmit={submitHandler}>
           <div>
             <label>Title:</label>
             <input name="title" defaultValue={post.title}></input>

@@ -7,7 +7,7 @@ div.edit-comment-div {
   align-items: center;
 }
 
-form.edit-comment-form {
+form.edit-comment-form-dark {
   border: 5px solid white;
   padding: 10px;
   width: 300px;
@@ -16,12 +16,12 @@ form.edit-comment-form {
   background-color: gray;
 }
 
-form.edit-comment-form div {
+form.edit-comment-form-dark div {
   display: flex;
   justify-content: space-between;
 }
 
-form.edit-comment-form div label {
+form.edit-comment-form-dark div label {
   font-size: 1.25rem;
   color: white;
 }

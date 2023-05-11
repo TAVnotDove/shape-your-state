@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import editComment from "../../services/commentServices/editComment";
 import "./EditComment.css";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const EditComment = () => {
   const { commentId } = useParams();
   const [comment, setComment] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+  const theme = useContext(ThemeContext)
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/comments/${commentId}`)
@@ -48,7 +50,7 @@ const EditComment = () => {
   return (
     <div className="edit-comment-div">
       {comment !== null ? (
-        <form className="edit-comment-form" onSubmit={submitHandler}>
+        <form className={`edit-comment-form-${theme}`} onSubmit={submitHandler}>
           <div>
             <label>Comment:</label>
             <input name="comment" defaultValue={comment.comment}></input>

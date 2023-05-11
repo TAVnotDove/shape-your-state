@@ -4,7 +4,7 @@
   justify-content: space-between;
 }
 
-.post-comments-div {
+.post-comments-div-dark {
   display: flex;
   flex-direction: column;
   border: 5px solid lightgray;
@@ -13,7 +13,7 @@
   min-width: 300px;
 }
 
-.post-comment-div {
+.post-comment-div-dark {
   background-color: darkgray;
   display: flex;
   flex-direction: column;
@@ -26,12 +26,12 @@
   word-break: break-word;
 }
 
-.post-comments-empty {
+.post-comments-empty-dark {
   align-self: center;
   color: white;
 }
 
-.post-comments-count {
+.post-comments-count-dark {
   color: white;
   font-weight: bold;
 }

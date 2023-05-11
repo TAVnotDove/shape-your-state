@@ -1,14 +1,16 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import "./ProfileSettings.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import updateSettings from "../../services/settingServices/updateSettings";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const ProfileSettings = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const selectRef = useRef();
+  const theme = useContext(ThemeContext)
 
   useEffect(() => {
     fetch(
@@ -50,7 +52,7 @@ const ProfileSettings = () => {
   }
 
   return (
-    <div className="profile-settings-div-container">
+    <div className={`profile-settings-div-container-${theme}`}>
       {error && <ErrorMessage error={error} />}
       {data ? (
         <>

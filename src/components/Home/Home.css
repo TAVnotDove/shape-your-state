@@ -6,12 +6,12 @@ div.home-div {
   flex-direction: column;
 }
 
-h1.home-title {
+h1.home-title-dark {
   color: white;
   font-weight: bold;
 }
 
-p.home-text {
+p.home-text-dark {
   color: lightgray;
   font-size: 1.25rem;
   width: 30vw;

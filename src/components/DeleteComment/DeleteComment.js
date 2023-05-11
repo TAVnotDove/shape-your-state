@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import deleteComment from "../../services/commentServices/deleteComment";
 import "../DeletePost/DeletePost.css";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const DeleteComment = () => {
   const { commentId } = useParams();
   const [comment, setComment] = useState(null);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
+  const theme = useContext(ThemeContext)
 
   useEffect(() => {
     fetch(`http://localhost:3030/data/comments/${commentId}`)
@@ -29,7 +31,7 @@ const DeleteComment = () => {
   }
 
   return (
-    <div className="delete-div">
+    <div className={`delete-div-${theme}`}>
       <div>
         <p className="delete-text">
           Are you sure you want to delete this comment?

@@ -4,11 +4,13 @@ import userLogin from "../../services/userServices/userLogin";
 import { Link, useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const Login = () => {
   const navigate = useNavigate();
   const setState = useContext(UserUpdateContext);
   const [error, setError] = useState(null);
+  const theme = useContext(ThemeContext)
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -37,11 +39,11 @@ const Login = () => {
   }
 
   return (
-    <div className="login-div-container">
+    <div className={`login-div-container-${theme}`}>
       {error && <ErrorMessage error={error} />}
       <form onSubmit={submitHandler}>
         <div className="login-field-div">
-          <label htmlFor="login-email" className="login-form-label">
+          <label htmlFor="login-email" className={`login-form-label-${theme}`}>
             Email
           </label>
           <input
@@ -53,7 +55,7 @@ const Login = () => {
           ></input>
         </div>
         <div className="login-field-div">
-          <label htmlFor="login-password" className="login-form-label">
+          <label htmlFor="login-password" className={`login-form-label-${theme}`}>
             Password
           </label>
           <input
@@ -69,8 +71,8 @@ const Login = () => {
         </div>
       </form>
       <div className="login-redirect-div">
-        <label className="login-form-label">Not registered?</label>
-        <Link className="login-link" to="/register">
+        <label className={`login-form-label-${theme}`}>Not registered?</label>
+        <Link className={`login-link-${theme}`} to="/register">
           Sign up
         </Link>
       </div>

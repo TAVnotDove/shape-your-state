@@ -7,7 +7,7 @@ div.post-div-container {
   flex-direction: column;
 }
 
-div.post-div {
+div.post-div-dark {
   width: 33%;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ div.post-div {
   height: fit-content;
 }
 
-div.post-div p {
+div.post-div-dark p {
   background-color: darkgray;
 }
 
@@ -34,16 +34,16 @@ div.post-actions-div {
   justify-content: space-between;
 }
 
-.post-action-link {
+.post-action-link-dark {
   color: white;
   text-decoration: none;
 }
 
-.post-action-link:hover {
+.post-action-link-dark:hover {
   color: black;
 }
 
-.post-details-username,
-.post-details-text {
+.post-details-username-dark,
+.post-details-text-dark {
   color: white;
 }

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import addComment from "../../services/commentServices/addComment.js";
 import "./CreateComment.css";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const CreateComment = ({ setUpdate, setError }) => {
   const { postId } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
+  const theme = useContext(ThemeContext)
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -27,7 +29,7 @@ const CreateComment = ({ setUpdate, setError }) => {
   }
 
   return (
-    <div className="create-comment-container">
+    <div className={`create-comment-container-${theme}`}>
       <form onSubmit={submitHandler}>
         <label htmlFor="create-comment-field">Comment:</label>
         <input id="create-comment-field" type="text" name="comment"></input>

@@ -7,7 +7,7 @@ div.create-post-div {
   align-items: center;
 }
 
-form.create-post-form {
+form.create-post-form-dark {
   border: 5px solid white;
   padding: 10px;
   width: 25%;
@@ -16,12 +16,12 @@ form.create-post-form {
   background-color: gray;
 }
 
-form.create-post-form div {
+form div {
   display: flex;
   justify-content: space-between;
 }
 
-form.create-post-form div label {
+form.create-post-form-dark div label {
   font-size: 1.25rem;
   color: white;
 }

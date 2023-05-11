@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import createSettings from "../../services/settingServices/createSettings";
+import { ThemeContext } from "../../contexts/themeContext"
 
 const Register = () => {
   const navigate = useNavigate();
   const setState = useContext(UserUpdateContext);
   const [error, setError] = useState(null);
+  const theme = useContext(ThemeContext)
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -70,11 +72,11 @@ const Register = () => {
   }
 
   return (
-    <div className="register-div-container">
+    <div className={`register-div-container-${theme}`}>
       {error && <ErrorMessage error={error} />}
       <form onSubmit={submitHandler}>
         <div className="register-field-div">
-          <label htmlFor="register-username" className="register-form-label">
+          <label htmlFor="register-username" className={`register-form-label-${theme}`}>
             Username
           </label>
           <input
@@ -85,7 +87,7 @@ const Register = () => {
           ></input>
         </div>
         <div className="register-field-div">
-          <label htmlFor="register-email" className="register-form-label">
+          <label htmlFor="register-email" className={`register-form-label-${theme}`}>
             Email
           </label>
           <input
@@ -97,7 +99,7 @@ const Register = () => {
           ></input>
         </div>
         <div className="register-field-div">
-          <label htmlFor="register-password" className="register-form-label">
+          <label htmlFor="register-password" className={`register-form-label-${theme}`}>
             Password
           </label>
           <input
@@ -111,7 +113,7 @@ const Register = () => {
         <div className="register-field-div">
           <label
             htmlFor="register-repeat-password"
-            className="register-form-confirm-pass-label"
+            className={`register-form-confirm-pass-label-${theme}`}
           >
             Confirm Password
           </label>
@@ -126,7 +128,7 @@ const Register = () => {
         <div className="register-form-button-div">
           <button className="register-form-button">Submit</button>
         </div>
-        <p className="register-form-password-info">
+        <p className={`register-form-password-info-${theme}`}>
           Password should:
           <br />
           -be at least 6 characters long;
@@ -135,8 +137,8 @@ const Register = () => {
         </p>
       </form>
       <div className="register-redirect-div">
-        <label className="register-form-label">Already registered?</label>
-        <Link className="register-link" to="/login">
+        <label className={`register-form-label-${theme}`}>Already registered?</label>
+        <Link className={`register-link-${theme}`} to="/login">
           Sign in
         </Link>
       </div>

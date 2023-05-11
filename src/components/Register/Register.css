@@ -1,4 +1,4 @@
-div.register-div-container {
+div.register-div-container-dark {
   width: 100%;
   height: 80vh;
   display: flex;
@@ -7,7 +7,7 @@ div.register-div-container {
   align-items: center;
 }
 
-div.register-div-container form {
+div.register-div-container-dark form {
   border: 10px solid white;
   background-color: gray;
 }
@@ -18,7 +18,7 @@ div.register-field-div {
   justify-content: space-between;
 }
 
-label.register-form-label {
+label.register-form-label-dark {
   font-size: 1.25rem;
   color: white;
 }
@@ -32,12 +32,12 @@ button.register-form-button {
   width: 100%;
 }
 
-.register-link {
+.register-link-dark {
   color: white;
   text-decoration: none;
 }
 
-.register-link:hover {
+.register-link-dark:hover {
   color: gray;
 }
 
@@ -48,7 +48,7 @@ button.register-form-button {
   width: 225px;
 }
 
-.register-form-password-info {
+.register-form-password-info-dark {
   color: white;
   background-color: darkgray;
 }
@@ -57,7 +57,7 @@ button.register-form-button {
   width: 100%;
 }
 
-.register-form-confirm-pass-label {
+.register-form-confirm-pass-label-dark {
   font-size: 1.25rem;
   color: white;
   width: 258px;
