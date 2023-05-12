@@ -25,7 +25,7 @@ const Login = () => {
       if (data !== undefined) {
         if (!data.code && data !== undefined) {
           localStorage.setItem("user", JSON.stringify(data));
-          setState("user");
+          setState(true);
           navigate("/", { replace: true });
         } else {
           setError(`${data.message}.`);

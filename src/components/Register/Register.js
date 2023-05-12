@@ -49,7 +49,7 @@ const Register = () => {
 
                 await createSettings(data.accessToken)
 
-                setState("user");
+                setState(true);
                 navigate("/", { replace: true });
               } else {
                 setError(`${data.message}.`);

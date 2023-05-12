@@ -12,7 +12,7 @@ const Header = () => {
     <nav className={`navbar-${theme}`}>
       <Link to="/">Home</Link>
       <Link to="/posts">Posts</Link>
-      {user === null ? (
+      {user === false ? (
         <>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>

@@ -4,7 +4,7 @@ export const UserContext = createContext();
 export const UserUpdateContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState(localStorage.getItem("user"));
+  const [user, setUser] = useState(localStorage.getItem("user") ? true : false);
 
   return (
     <UserContext.Provider value={user}>

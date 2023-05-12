@@ -12,7 +12,7 @@ const Logout = () => {
   function logoutUser(e) {
     if (e.target.textContent === "Yes") {
       localStorage.clear();
-      setState(null);
+      setState(false);
 
       navigate("/", { replace: true });
     }
