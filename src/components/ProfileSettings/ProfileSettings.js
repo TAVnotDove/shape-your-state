@@ -3,14 +3,15 @@ import "./ProfileSettings.css";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadingMessage from "../LoadingMessage/LoadingMessage";
 import updateSettings from "../../services/settingServices/updateSettings";
-import { ThemeContext } from "../../contexts/themeContext"
+import { ThemeContext } from "../../contexts/themeContext";
 
 const ProfileSettings = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const selectRef = useRef();
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
+  const [changed, setChanged] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -31,6 +32,15 @@ const ProfileSettings = () => {
 
   function cancelHandler() {
     selectRef.current.value = data.theme;
+    setChanged(false);
+  }
+
+  function changeHandler() {
+    if (selectRef.current.value !== data.theme) {
+      setChanged(true);
+    } else {
+      setChanged(false);
+    }
   }
 
   async function saveHandler() {
@@ -42,7 +52,7 @@ const ProfileSettings = () => {
 
     if (response !== undefined) {
       if (!response.code) {
-        window.location.reload()
+        window.location.reload();
       } else {
         setError(`${response.message}.`);
       }
@@ -62,14 +72,19 @@ const ProfileSettings = () => {
               id="theme-setting"
               defaultValue={data.theme}
               ref={selectRef}
+              onChange={changeHandler}
             >
               <option value="dark">Dark</option>
               <option value="light">Light</option>
             </select>
           </div>
           <div>
-            <button onClick={cancelHandler}>Cancel</button>
-            <button onClick={saveHandler}>Save</button>
+            <button onClick={cancelHandler} disabled={!changed}>
+              Cancel
+            </button>
+            <button onClick={saveHandler} disabled={!changed}>
+              Save
+            </button>
           </div>
         </>
       ) : (
