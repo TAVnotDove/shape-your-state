@@ -24,7 +24,7 @@ const Post = () => {
   }, [postId]);
 
   return (
-    <div className="post-div-container">
+    <div className={`post-div-container-${theme}`}>
       {post !== null ? (
         <>
           {post.code ? (

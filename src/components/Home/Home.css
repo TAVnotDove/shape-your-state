@@ -1,9 +1,10 @@
-div.home-div {
+div.home-div-dark {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
   flex-direction: column;
+  background-color: #282c34;
 }
 
 h1.home-title-dark {

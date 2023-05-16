@@ -41,7 +41,7 @@ const CreatePost = () => {
   }
 
   return (
-    <div className="create-post-div">
+    <div className={`create-post-div-${theme}`}>
       {error && <ErrorMessage error={error} />}
       <form className={`create-post-form-${theme}`} onSubmit={submitHandler}>
         <div>

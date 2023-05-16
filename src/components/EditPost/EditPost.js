@@ -56,7 +56,7 @@ const EditPost = () => {
   }
 
   return (
-    <div className="edit-post-div">
+    <div className={`edit-post-div-${theme}`}>
       {error && <ErrorMessage error={error} />}
       {post !== null ? (
         <form className={`edit-post-form-${theme}`} onSubmit={submitHandler}>

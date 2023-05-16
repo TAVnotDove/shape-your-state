@@ -48,7 +48,7 @@ const EditComment = () => {
   }
 
   return (
-    <div className="edit-comment-div">
+    <div className={`edit-comment-div-${theme}`}>
       {comment !== null ? (
         <form className={`edit-comment-form-${theme}`} onSubmit={submitHandler}>
           <div>

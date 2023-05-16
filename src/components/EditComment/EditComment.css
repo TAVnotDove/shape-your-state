@@ -1,10 +1,11 @@
-div.edit-comment-div {
+div.edit-comment-div-dark {
   width: 100%;
   height: 80vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #282c34;
 }
 
 form.edit-comment-form-dark {

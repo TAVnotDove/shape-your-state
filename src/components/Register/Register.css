@@ -5,6 +5,7 @@ div.register-div-container-dark {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #282c34;
 }
 
 div.register-div-container-dark form {

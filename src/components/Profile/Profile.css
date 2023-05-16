@@ -5,6 +5,7 @@ div.profile-div-container-dark {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #282c34;
 }
 
 div.profile-details-div-dark {

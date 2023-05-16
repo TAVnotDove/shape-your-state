@@ -42,7 +42,7 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="posts-div">
+    <div className={`posts-div-${theme}`}>
       <div className={`posts-view-select-div-${theme}`}>
         <label htmlFor="posts-view-select">View order:</label>
         <select id="posts-view-select" onChange={onChange}>
