@@ -4,13 +4,14 @@ import userLogin from "../../services/userServices/userLogin";
 import { Link, useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { ThemeContext } from "../../contexts/themeContext"
+import { ThemeContext, ThemeUpdateContext } from "../../contexts/themeContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const setState = useContext(UserUpdateContext);
   const [error, setError] = useState(null);
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
+  const setTheme = useContext(ThemeUpdateContext);
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -25,8 +26,22 @@ const Login = () => {
       if (data !== undefined) {
         if (!data.code && data !== undefined) {
           localStorage.setItem("user", JSON.stringify(data));
-          setState(true);
-          navigate("/", { replace: true });
+
+          fetch(
+            `http://localhost:3030/data/settings?where=_ownerId%3D%22${data._id}%22`
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              localStorage.setItem("theme", response[0].theme);
+
+              setTheme(response[0].theme);
+              setState(true);
+
+              navigate("/", { replace: true });
+            })
+            .catch(() => {
+              setError("The server failed to connect.");
+            });
         } else {
           setError(`${data.message}.`);
         }
@@ -55,7 +70,10 @@ const Login = () => {
           ></input>
         </div>
         <div className="login-field-div">
-          <label htmlFor="login-password" className={`login-form-label-${theme}`}>
+          <label
+            htmlFor="login-password"
+            className={`login-form-label-${theme}`}
+          >
             Password
           </label>
           <input

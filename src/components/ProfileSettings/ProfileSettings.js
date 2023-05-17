@@ -52,6 +52,8 @@ const ProfileSettings = () => {
 
     if (response !== undefined) {
       if (!response.code) {
+        localStorage.setItem("theme", response.theme);
+
         window.location.reload();
       } else {
         setError(`${response.message}.`);

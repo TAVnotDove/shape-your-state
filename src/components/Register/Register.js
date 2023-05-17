@@ -5,13 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserUpdateContext } from "../../contexts/userContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import createSettings from "../../services/settingServices/createSettings";
-import { ThemeContext } from "../../contexts/themeContext"
+import { ThemeContext } from "../../contexts/themeContext";
 
 const Register = () => {
   const navigate = useNavigate();
   const setState = useContext(UserUpdateContext);
   const [error, setError] = useState(null);
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -46,10 +46,12 @@ const Register = () => {
             if (data !== undefined) {
               if (!data.code) {
                 localStorage.setItem("user", JSON.stringify(data));
+                localStorage.setItem("theme", "dark");
 
-                await createSettings(data.accessToken)
+                await createSettings(data.accessToken);
 
                 setState(true);
+
                 navigate("/", { replace: true });
               } else {
                 setError(`${data.message}.`);
@@ -76,7 +78,10 @@ const Register = () => {
       {error && <ErrorMessage error={error} />}
       <form onSubmit={submitHandler}>
         <div className="register-field-div">
-          <label htmlFor="register-username" className={`register-form-label-${theme}`}>
+          <label
+            htmlFor="register-username"
+            className={`register-form-label-${theme}`}
+          >
             Username
           </label>
           <input
@@ -87,7 +92,10 @@ const Register = () => {
           ></input>
         </div>
         <div className="register-field-div">
-          <label htmlFor="register-email" className={`register-form-label-${theme}`}>
+          <label
+            htmlFor="register-email"
+            className={`register-form-label-${theme}`}
+          >
             Email
           </label>
           <input
@@ -99,7 +107,10 @@ const Register = () => {
           ></input>
         </div>
         <div className="register-field-div">
-          <label htmlFor="register-password" className={`register-form-label-${theme}`}>
+          <label
+            htmlFor="register-password"
+            className={`register-form-label-${theme}`}
+          >
             Password
           </label>
           <input
@@ -137,7 +148,9 @@ const Register = () => {
         </p>
       </form>
       <div className="register-redirect-div">
-        <label className={`register-form-label-${theme}`}>Already registered?</label>
+        <label className={`register-form-label-${theme}`}>
+          Already registered?
+        </label>
         <Link className={`register-link-${theme}`} to="/login">
           Sign in
         </Link>
