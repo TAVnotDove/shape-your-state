@@ -6,3 +6,12 @@
   height: 10vh;
   background-color: #282c34;
 }
+
+.footer-light {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 10vh;
+  background-color: white;
+}

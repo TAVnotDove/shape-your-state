@@ -8,6 +8,16 @@ div.create-post-div-dark {
   background-color: #282c34;
 }
 
+div.create-post-div-light {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 form.create-post-form-dark {
   border: 5px solid white;
   padding: 10px;
@@ -15,6 +25,15 @@ form.create-post-form-dark {
   display: flex;
   flex-direction: column;
   background-color: gray;
+}
+
+form.create-post-form-light {
+  border: 5px solid darkgray;
+  padding: 10px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
 }
 
 form div {
@@ -25,4 +44,9 @@ form div {
 form.create-post-form-dark div label {
   font-size: 1.25rem;
   color: white;
+}
+
+form.create-post-form-light div label {
+  font-size: 1.25rem;
+  color: black;
 }

@@ -13,12 +13,31 @@
   min-width: 300px;
 }
 
+.post-comments-div-light {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid darkgray;
+  overflow-y: auto;
+  max-height: 350px;
+  min-width: 300px;
+}
+
 .post-comment-div-dark {
   background-color: darkgray;
   display: flex;
   flex-direction: column;
   border: 5px solid white;
   padding-left: 10px;
+  color: white;
+}
+
+.post-comment-div-light {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid darkgray;
+  padding-left: 10px;
+  color: black;
 }
 
 .post-comment-comment {
@@ -31,7 +50,17 @@
   color: white;
 }
 
+.post-comments-empty-light {
+  align-self: center;
+  color: black;
+}
+
 .post-comments-count-dark {
   color: white;
+  font-weight: bold;
+}
+
+.post-comments-count-light {
+  color: black;
   font-weight: bold;
 }

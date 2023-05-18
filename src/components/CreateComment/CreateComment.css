@@ -3,3 +3,9 @@ div.create-comment-container-dark {
   margin-top: 10px;
   background-color: darkgray;
 }
+
+div.create-comment-container-light {
+  border: 5px solid darkgray;
+  margin-top: 10px;
+  background-color: lightgray;
+}

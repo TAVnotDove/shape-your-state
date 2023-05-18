@@ -8,6 +8,16 @@
     background-color: #282c34;
 }
 
+.profile-settings-div-container-light {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
 .profile-settings-div-container-dark div {
     border: 5px solid white;
     display: flex;
@@ -19,11 +29,31 @@
     background-color: gray;
 }
 
+.profile-settings-div-container-light div {
+    border: 5px solid darkgray;
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    min-width: fit-content;
+    padding: 10px;
+    align-items: center;
+    background-color: lightgray;
+}
+
 .profile-settings-div-container-dark label {
     font-size: 1.25rem;
     color: white;
 }
 
+.profile-settings-div-container-light label {
+    font-size: 1.25rem;
+    color: black;
+}
+
 .profile-settings-div-container-dark p {
     color: white;
+}
+
+.profile-settings-div-container-light p {
+    color: black;
 }

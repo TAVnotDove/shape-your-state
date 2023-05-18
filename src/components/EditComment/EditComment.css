@@ -8,6 +8,16 @@ div.edit-comment-div-dark {
   background-color: #282c34;
 }
 
+div.edit-comment-div-light {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 form.edit-comment-form-dark {
   border: 5px solid white;
   padding: 10px;
@@ -17,7 +27,21 @@ form.edit-comment-form-dark {
   background-color: gray;
 }
 
+form.edit-comment-form-light {
+  border: 5px solid darkgray;
+  padding: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+}
+
 form.edit-comment-form-dark div {
+  display: flex;
+  justify-content: space-between;
+}
+
+form.edit-comment-form-light div {
   display: flex;
   justify-content: space-between;
 }
@@ -25,4 +49,9 @@ form.edit-comment-form-dark div {
 form.edit-comment-form-dark div label {
   font-size: 1.25rem;
   color: white;
+}
+
+form.edit-comment-form-light div label {
+  font-size: 1.25rem;
+  color: black;
 }

@@ -8,9 +8,24 @@ div.login-div-container-dark {
   background-color: #282c34;
 }
 
+div.login-div-container-light {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 div.login-div-container-dark form {
   border: 5px solid white;
   background-color: gray;
+}
+
+div.login-div-container-light form {
+  border: 5px solid darkgray;
+  background-color: lightgray;
 }
 
 div.login-field-div {
@@ -31,6 +46,11 @@ label.login-form-label-dark {
   color: white;
 }
 
+label.login-form-label-light {
+  font-size: 1.25rem;
+  color: black;
+}
+
 div.login-form-button-div {
   display: flex;
   justify-content: center;
@@ -45,8 +65,17 @@ button.login-form-button {
   text-decoration: none;
 }
 
+.login-link-light {
+  color: black;
+  text-decoration: none;
+}
+
 .login-link-dark:hover {
   color: gray;
+}
+
+.login-link-light:hover {
+  color: lightgray;
 }
 
 .login-redirect-div {

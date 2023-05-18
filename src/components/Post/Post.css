@@ -8,6 +8,16 @@ div.post-div-container-dark {
   background-color: #282c34;
 }
 
+div.post-div-container-light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  overflow-y: auto;
+  flex-direction: column;
+  background-color: white;
+}
+
 div.post-div-dark {
   width: 33%;
   display: flex;
@@ -18,8 +28,22 @@ div.post-div-dark {
   height: fit-content;
 }
 
+div.post-div-light {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: lightgray;
+  color: black;
+  height: fit-content;
+}
+
 div.post-div-dark p {
   background-color: darkgray;
+}
+
+div.post-div-light p {
+  background-color: lightgray;
 }
 
 div.post-details-div {
@@ -40,11 +64,25 @@ div.post-actions-div {
   text-decoration: none;
 }
 
+.post-action-link-light {
+  color: black;
+  text-decoration: none;
+}
+
 .post-action-link-dark:hover {
   color: black;
+}
+
+.post-action-link-light:hover {
+  color: white;
 }
 
 .post-details-username-dark,
 .post-details-text-dark {
   color: white;
+}
+
+.post-details-username-light,
+.post-details-text-light {
+  color: black;
 }

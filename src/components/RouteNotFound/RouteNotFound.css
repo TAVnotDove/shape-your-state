@@ -12,3 +12,11 @@
   background-color: gray;
   color: white;
 }
+
+.page-not-found-message-light {
+  border: 5px solid darkgray;
+  width: 350px;
+  text-align: center;
+  background-color: lightgray;
+  color: black;
+}

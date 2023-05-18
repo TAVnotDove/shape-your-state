@@ -1,3 +1,7 @@
 .loading-message-dark {
   color: white;
 }
+
+.loading-message-light {
+  color: black;
+}

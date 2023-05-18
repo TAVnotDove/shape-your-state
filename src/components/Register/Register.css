@@ -8,9 +8,24 @@ div.register-div-container-dark {
   background-color: #282c34;
 }
 
+div.register-div-container-light {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 div.register-div-container-dark form {
   border: 10px solid white;
   background-color: gray;
+}
+
+div.register-div-container-light form {
+  border: 10px solid darkgray;
+  background-color: lightgray;
 }
 
 div.register-field-div {
@@ -22,6 +37,11 @@ div.register-field-div {
 label.register-form-label-dark {
   font-size: 1.25rem;
   color: white;
+}
+
+label.register-form-label-light {
+  font-size: 1.25rem;
+  color: black;
 }
 
 div.register-form-button-div {
@@ -38,7 +58,16 @@ button.register-form-button {
   text-decoration: none;
 }
 
+.register-link-light {
+  color: black;
+  text-decoration: none;
+}
+
 .register-link-dark:hover {
+  color: gray;
+}
+
+.register-link-light:hover {
   color: gray;
 }
 
@@ -54,6 +83,11 @@ button.register-form-button {
   background-color: darkgray;
 }
 
+.register-form-password-info-light {
+  color: black;
+  background-color: lightgray;
+}
+
 .register-form-input {
   width: 100%;
 }
@@ -61,5 +95,11 @@ button.register-form-button {
 .register-form-confirm-pass-label-dark {
   font-size: 1.25rem;
   color: white;
+  width: 258px;
+}
+
+.register-form-confirm-pass-label-light {
+  font-size: 1.25rem;
+  color: black;
   width: 258px;
 }

@@ -7,13 +7,34 @@ div.home-div-dark {
   background-color: #282c34;
 }
 
+div.home-div-light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+  background-color: white;
+}
+
 h1.home-title-dark {
   color: white;
   font-weight: bold;
 }
 
+h1.home-title-light {
+  color: black;
+  font-weight: bold;
+}
+
 p.home-text-dark {
   color: lightgray;
+  font-size: 1.25rem;
+  width: 30vw;
+  text-align: center;
+}
+
+p.home-text-light {
+  color: black;
   font-size: 1.25rem;
   width: 30vw;
   text-align: center;

@@ -8,6 +8,16 @@ div.edit-post-div-dark {
   background-color: #282c34;
 }
 
+div.edit-post-div-light {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 form.edit-post-form-dark {
   border: 5px solid white;
   padding: 10px;
@@ -17,7 +27,21 @@ form.edit-post-form-dark {
   background-color: gray;
 }
 
+form.edit-post-form-light {
+  border: 5px solid darkgray;
+  padding: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+}
+
 form.edit-post-form-dark div {
+  display: flex;
+  justify-content: space-between;
+}
+
+form.edit-post-form-light div {
   display: flex;
   justify-content: space-between;
 }
@@ -25,4 +49,9 @@ form.edit-post-form-dark div {
 form.edit-post-form-dark div label {
   font-size: 1.25rem;
   color: white;
+}
+
+form.edit-post-form-light div label {
+  font-size: 1.25rem;
+  color: black;
 }
