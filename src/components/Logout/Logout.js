@@ -26,7 +26,7 @@ const Logout = () => {
   return (
     <div className={`logout-div-${theme}`}>
       <div>
-        <p className="logout-text">Are you sure you want to logout?</p>
+        <p className={`logout-text-${theme}`}>Are you sure you want to logout?</p>
         <button onClick={logoutUser} className="logout-button">
           Yes
         </button>

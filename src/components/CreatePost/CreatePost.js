@@ -45,12 +45,12 @@ const CreatePost = () => {
       {error && <ErrorMessage error={error} />}
       <form className={`create-post-form-${theme}`} onSubmit={submitHandler}>
         <div>
-          <label>Title:</label>
-          <input name="title"></input>
+          <label htmlFor="post-title">Title:</label>
+          <input name="title" id="post-title"></input>
         </div>
         <div>
-          <label>Text:</label>
-          <input name="text"></input>
+          <label htmlFor="post-text">Text:</label>
+          <input name="text" id="post-text"></input>
         </div>
         <button>Submit</button>
       </form>

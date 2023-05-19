@@ -40,8 +40,14 @@ div.delete-div-light div {
   padding: 10px;
 }
 
-p.delete-text {
+p.delete-text-dark {
   font-size: 1.25rem;
+  color: white;
+}
+
+p.delete-text-light {
+  font-size: 1.25rem;
+  color: black;
 }
 
 button.delete-button {

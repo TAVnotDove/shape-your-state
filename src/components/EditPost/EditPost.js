@@ -61,12 +61,12 @@ const EditPost = () => {
       {post !== null ? (
         <form className={`edit-post-form-${theme}`} onSubmit={submitHandler}>
           <div>
-            <label>Title:</label>
-            <input name="title" defaultValue={post.title}></input>
+            <label htmlFor="edit-post-title">Title:</label>
+            <input name="title" id="edit-post-title" defaultValue={post.title}></input>
           </div>
           <div>
-            <label>Text:</label>
-            <input name="text" defaultValue={post.text}></input>
+            <label htmlFor="edit-post-text">Text:</label>
+            <input name="text" id="edit-post-text" defaultValue={post.text}></input>
           </div>
           <button>Edit</button>
         </form>

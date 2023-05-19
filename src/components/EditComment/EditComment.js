@@ -52,8 +52,8 @@ const EditComment = () => {
       {comment !== null ? (
         <form className={`edit-comment-form-${theme}`} onSubmit={submitHandler}>
           <div>
-            <label>Comment:</label>
-            <input name="comment" defaultValue={comment.comment}></input>
+            <label htmlFor="edit-comment-comment">Comment:</label>
+            <input name="comment" id="edit-comment-comment" defaultValue={comment.comment}></input>
           </div>
           <button>Edit</button>
         </form>

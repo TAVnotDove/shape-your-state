@@ -40,8 +40,14 @@ div.logout-div-light div {
   padding: 10px;
 }
 
-p.logout-text {
+p.logout-text-dark {
   font-size: 1.25rem;
+  color: white;
+}
+
+p.logout-text-light {
+  font-size: 1.25rem;
+  color: black;
 }
 
 button.logout-button {

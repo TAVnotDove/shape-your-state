@@ -33,7 +33,7 @@ const DeleteComment = () => {
   return (
     <div className={`delete-div-${theme}`}>
       <div>
-        <p className="delete-text">
+        <p className={`delete-text-${theme}`}>
           Are you sure you want to delete this comment?
         </p>
         <button onClick={clickHandler} className="delete-button">
